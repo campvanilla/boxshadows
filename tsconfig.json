@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es2017",
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "lib": [
+      "dom",
+      "es6",
+      "es7"
+    ],
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+    }
+  },
+  "include": [
+    "./src/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "typings/globals"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "useCache": true,
+    "transpileOnly": true,
+    "forceIsolatedModules": true
+  }
+}

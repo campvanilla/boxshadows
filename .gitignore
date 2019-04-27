@@ -1,3 +1,5 @@
+.awcache
+dist
 # Logs
 logs
 *.log
