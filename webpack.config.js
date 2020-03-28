@@ -8,8 +8,6 @@ const PROD = process.env.NODE_ENV === 'production';
 module.exports = {
   entry: {
     app: [
-      DEV && 'react-hot-loader/patch',
-      DEV && 'webpack/hot/dev-server',
       './src/index.tsx',
     ].filter(Boolean),
   },
@@ -21,15 +19,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
-
-  devServer: DEV ? {
-    host: '0.0.0.0',
-    port: '1337',
-    disableHostCheck: true,
-    hot: true,
-    inline: true,
-    historyApiFallback: true,
-  } : {},
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.d.ts'],
@@ -67,8 +56,6 @@ module.exports = {
       __DEV__: JSON.stringify(!!DEV),
       __PROD__: JSON.stringify(!!PROD),
     }),
-    DEV && new webpack.HotModuleReplacementPlugin(),
-    DEV && new webpack.NamedModulesPlugin(),
     new HTMLWebpackPlugin({
       template: './src/index.html',
     }),

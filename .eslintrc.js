@@ -1,19 +1,41 @@
 module.exports = {
-  extends: ["airbnb-typescript"],
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
-  rules: {
-    'no-underscore-dangle': 0,
-    'import/no-extraneous-dependencies': 0,
-    'import/no-mutable-exports': 0,
-    quotes: ['error', 'single']
-  },
+  parser: '@typescript-eslint/parser',  // Specifies the ESLint parser
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',  // Uses the recommended rules from @typescript-eslint/eslint-plugin
+  ],
   env: {
-    "browser": true,
+    browser: true,
+    node: true,
+    es6: true,
+  },
+  parserOptions: {
+    ecmaVersion: 2018,  // Allows for the parsing of modern ECMAScript features
+    sourceType: 'module',  // Allows for the use of imports
+    ecmaFeatures: {
+      jsx: true,  // Allows for the parsing of JSX
+    },
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
+  rules: {
+    '@typescript-eslint/camelcase': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
+  },
+  settings: {
+    react: {
+      version: 'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
+    },
   },
   globals: {
-    __DEV__: true,
+    __PORT__: true,
   }
-}
+};
