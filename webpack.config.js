@@ -24,6 +24,8 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.json', '.d.ts'],
     alias: {
       '@src': path.resolve('./src'),
+      '@styles': path.resolve('./src/styles'),
+      '@components': path.resolve('./src/components'),
     },
   },
 
@@ -50,7 +52,6 @@ module.exports = {
       },
     ],
   },
-
   plugins: [
     new webpack.DefinePlugin({
       __DEV__: JSON.stringify(!!DEV),

@@ -21,10 +21,17 @@
       "@src/*": [
         "src/*"
       ],
+      "@styles/*": [
+        "src/styles/*",
+      ],
+      "@components/*": [
+        "src/components/*",
+      ]
     }
   },
   "include": [
     "./src/**/*",
+    "styled-components.d.ts"
   ],
   "exclude": [
     "node_modules",
@@ -34,5 +41,5 @@
     "useCache": true,
     "transpileOnly": true,
     "forceIsolatedModules": true
-  }
+  },
 }
