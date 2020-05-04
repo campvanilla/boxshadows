@@ -1,8 +1,7 @@
 {
   "name": "boxshadows",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "create and tweak CSS box-shadows ✨",
   "scripts": {
     "start:dev": "webpack-dev-server --open",
     "start": "npm run start:dev",
@@ -24,7 +23,7 @@
     "url": "git+https://github.com/campvanilla/boxshadows.git"
   },
   "author": "Abinav Seelan <abinav.n.seelan@gmail.com>, Aditi Mohanty <aditi.anomita@gmail.com>",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/campvanilla/boxshadows/issues"
   },

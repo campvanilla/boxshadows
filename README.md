@@ -1,29 +1,36 @@
-# <img width="200" alt="logo-light-medium-400x70" src="https://user-images.githubusercontent.com/6426069/80978746-16395d80-8e44-11ea-887e-b04a715f66fb.png">
+# <img width="425" alt="logo-light-medium-400x70" src="https://user-images.githubusercontent.com/6426069/80978746-16395d80-8e44-11ea-887e-b04a715f66fb.png">
 
-⚠️ WIP
+> create and tweak CSS box-shadows ✨
 
----
+<center>
+  <a href="https://boxshadows.com/?utm_source=github-readme">
+    <img src="https://user-images.githubusercontent.com/6426069/80999471-60313c00-8e62-11ea-8682-95a7e82882d4.png" width="600" />
+  </a>
+</center>
 
-## TODO
 
-- [x] Color Picker (@rheaditi)
-  - [x] onBlur close (@rheaditi)
-  - [x] padding fix (@rheaditi)
-- [x] Preview (@abinavseelan)
-- [x] Accordian Component (@abinavseelan)
-- [x] Muliple Shadow support (@abinavseelan)
-  - [x] Shadow Section icons
-- [x] Toggle Component (@abinavseelan)
-- [x] UI cleanup (@rheaditi)
-  - [x] BoxShadows Logo (@rheaditi)
-  - [x] Icons for each section (@rheaditi)
-- [x] Remove shadows (@rheaditi)
-- [ ] Re-order shadows ()
-- [x] PlayArea background color (@abinavseelan)
-- [ ] What do we do about mobile??
-- [ ] Setup for deployment (@rheaditi)
-  - [x] Integrate with now.sh
-  - [ ] SEO-ify
-  - [x] Add google analytics
-- [ ] Color picker crossing bounds.
-- [ ] Copy to Clipboard (@abinavseelan)
+## Contributing
+
+Want to raise an issue or pull request? Do give our Contributing page a read. 🤓
+
+### First time setup
+
+To set up the codebase, clone the repository.
+
+```sh
+git clone https://github.com/campvanilla/boxshadows.git
+```
+
+Once the repository has been cloned, install the necessary dependencies.
+
+```sh
+npm install
+```
+
+To start the development environment,
+
+```sh
+npm start
+```
+
+View the application at http://localhost:7335/
