@@ -24,4 +24,5 @@ export const Preview = Styled.div<PreviewProps>`
   border: ${props => `${props.borderThickness}px solid ${props.borderColor}`};
   border-radius: ${props => `${props.borderRadius}px`};
   background-color: ${props => props.backgroundColor};
+  box-sizing: content-box;
 `;

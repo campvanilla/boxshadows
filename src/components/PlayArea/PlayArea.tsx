@@ -17,7 +17,7 @@ const PlayArea = () => {
         borderThickness={state.element.borderThickness}
       />
     </PlayAreaContainer>
-  )
+  );
 }
 
 export default PlayArea;
