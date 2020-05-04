@@ -1,1 +1,4 @@
-export { ColorInput, ColorInputProps, ColorChangeEvent } from './ColorInput';
+export { ColorInput } from './ColorInput';
+
+// export types
+export type { ColorInputProps, ColorChangeEvent } from './ColorInput';

@@ -62,6 +62,7 @@ export const ColorInput: React.FC<ColorInputProps> = ({
       name={name}
       value={value}
       prepend={indicator}
+      onChange={onChange}
      />
     {isActive && <PickerContainer>
       <SketchPicker onChange={onPickerChange} />
