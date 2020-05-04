@@ -5,6 +5,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin');
 
 // variables
 const PROD = process.env.NODE_ENV === 'production';
@@ -91,7 +92,9 @@ module.exports = {
           priority: 1,
         }
       }
-    }
+    },
+    minimize: PROD,
+    minimizer: [new TerserPlugin()],
   },
   devServer: {
     compress: true,
