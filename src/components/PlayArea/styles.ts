@@ -16,13 +16,21 @@ interface PreviewProps {
   borderThickness: string;
   borderColor: string;
   backgroundColor: string;
+  shadows: Array<{
+    offsetX: string;
+    offsetY: string;
+    blur: string;
+    spread: string;
+    color: string;
+  }>;
 }
 
-export const Preview = Styled.div<PreviewProps>`
+export const Preview = Styled.output<PreviewProps>`
   height: ${props => `${props.height}px`};
   width: ${props => `${props.width}px`};
   border: ${props => `${props.borderThickness}px solid ${props.borderColor}`};
   border-radius: ${props => `${props.borderRadius}px`};
   background-color: ${props => props.backgroundColor};
   box-sizing: content-box;
+  box-shadow: ${props => props.shadows.map(shadow => `${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blur}px ${shadow.spread}px ${shadow.color}`).join(', ')};
 `;

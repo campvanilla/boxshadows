@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { StoreContext } from '@contexts/Store';
+import { StoreContext, actions } from '@contexts/Store';
 import { ColorInput, ColorChangeEvent } from '@components/ColorInput';
 import { ColorSectionIcon } from './icons';
 
@@ -14,7 +14,7 @@ const ColorControls = () => {
         : (e as ColorChangeEvent);
 
     updateState({
-      type: 'Element',
+      type: actions.UpdateElement,
       payload: {
         key: name,
         value: value,

@@ -10,6 +10,8 @@ export const Theme = {
     gallery: '#EBEBEB',
     pacificBlue: '#009AC9',
     nepal: '#899DBF',
+    mischka: '#BFC9D9',
+    whiteish: '#FDFDFD',
   }
 };
 

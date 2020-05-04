@@ -9,6 +9,7 @@ const PlayArea = () => {
   return (
     <PlayAreaContainer>
       <Preview
+        shadows={state.shadows}
         height={state.element.height}
         width={state.element.width}
         backgroundColor={state.element.backgroundColor}

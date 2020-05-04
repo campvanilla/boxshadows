@@ -11,8 +11,8 @@ const initialState = {
   },
   shadows: [
     {
-      offsetX: '0',
-      offsetY: '0',
+      offsetX: '17',
+      offsetY: '17',
       blur: '0',
       spread: '0',
       color: '#EBEBEB',
@@ -30,8 +30,8 @@ interface ShadowPayload extends ElementPayload {
 }
 
 interface Action {
-  type: 'Element' | 'Shadow';
-  payload: ElementPayload | ShadowPayload;
+  type: string;
+  payload?: ElementPayload | ShadowPayload;
 }
 
 interface Context {
@@ -41,10 +41,20 @@ interface Context {
 
 export const StoreContext = React.createContext<Context>({} as any);
 
+export const actions = {
+  UpdateElement: 'UpdateElement',
+  UpdateShadow: 'UpdateShadow',
+  AddShadow: 'AddShadow',
+}
+
 const StoreProvider = ({ children }) => {
-  const reducer = (state, action: Action) => {
+  const reducer = (state: typeof initialState, action: Action) => {
     switch (action.type) {
-      case 'Element': {
+      case actions.UpdateElement: {
+        if (!action.payload) {
+          return state;
+        }
+
         return {
           ...state,
           element: {
@@ -54,7 +64,11 @@ const StoreProvider = ({ children }) => {
         }
       }
 
-      case 'Shadow': {
+      case actions.UpdateShadow: {
+        if (!action.payload) {
+          return state;
+        }
+
         const {
           shadowIndex,
           key,
@@ -63,14 +77,37 @@ const StoreProvider = ({ children }) => {
 
         return {
           ...state,
-          shadows: {
-            ...state.shadows,
-            [shadowIndex]: {
-              ...state.shadows[shadowIndex],
-              [key]: value,
+          shadows: state.shadows.map((shadow, index) => {
+            if (index !== shadowIndex) {
+              return shadow;
             }
-          },
+
+            return {
+              ...shadow,
+              [key]: value,
+            };
+          })
         }
+      }
+
+      case actions.AddShadow: {
+        return {
+          ...state,
+          shadows: [
+            ...state.shadows,
+            {
+              offsetX: '0',
+              offsetY: '0',
+              blur: '0',
+              spread: '0',
+              color: '#EBEBEB',
+            },
+          ]
+        };
+      }
+
+      default: {
+        return state;
       }
     }
   }

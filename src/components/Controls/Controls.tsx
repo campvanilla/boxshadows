@@ -12,8 +12,9 @@ const Controls = () => {
   return (
     <Aside>
       <ControlPanel>
-      <ElementControls />
-      <ColorControls />
+        <ElementControls />
+        <ColorControls />
+        <ShadowControls />
       </ControlPanel>
       <Footer>
         <a href='/' title='boxshadows.com'>
