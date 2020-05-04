@@ -2,8 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const DEV = process.env.NODE_ENV === 'development';
 const PROD = process.env.NODE_ENV === 'production';
+const DEV = !PROD;
 
 module.exports = {
   entry: {
@@ -61,4 +61,9 @@ module.exports = {
       template: './src/index.html',
     }),
   ].filter(Boolean),
+  devServer: {
+    compress: true,
+    port: 7335,
+    contentBase: './dist',
+  },
 };

@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "NODE_ENV=development webpack --progress --watch & http-server -p 3000 ./dist",
+    "start:dev": "webpack-dev-server --open",
     "start": "npm run start:dev",
+    "build": "NODE_ENV=production wepback",
     "lint": "eslint --ext .ts,.tsx ./"
   },
   "husky": {
@@ -42,6 +43,7 @@
     "@typescript-eslint/parser": "^2.25.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
+    "core-js": "^3.6.5",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -59,7 +61,8 @@
     "svg-inline-loader": "^0.8.2",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {}
 }
