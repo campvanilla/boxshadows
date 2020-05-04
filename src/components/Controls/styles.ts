@@ -1,17 +1,48 @@
-import Styled from 'styled-components';
+import styled from 'styled-components';
 
-export const ControlsContainer = Styled.div`
+export const ControlPanel = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-contents: flex-start;
+  overflow-y: auto;
+`;
+
+export const Footer = styled.footer`
+  border-top: 1px solid ${props => props.theme.colors.heather};
+  display: flex;
+  flex-basis: 60px;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: ${props => props.theme.colors.wildSand};
+  box-shadow: 0 1px 3px 1px rgba(50,50,93,.11), 0 -1px 10px rgba(0,0,0,.08);
+`;
+
+export const Aside = styled.aside`
   background-color: ${props => props.theme.colors.wildSand};
   width: 500px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
 
   .control-section {
     border-bottom: 1px solid ${props => props.theme.colors.heather};
     padding: 24px 16px;
   }
 
+  .control-section:last-child {
+    border-bottom: none;
+  }
+
   .control-section-heading {
     display: flex;
+    justify-content: space-between;
     font-size: 16px;
     line-height: 1;
     font-weight: 500;
@@ -32,6 +63,11 @@ export const ControlsContainer = Styled.div`
     svg {
       margin-right: 8px;
     }
+
+    .add-btn {
+      border: none;
+      background: none;
+    }
   }
 
   .control-row {
@@ -41,6 +77,8 @@ export const ControlsContainer = Styled.div`
 
     .title {
       flex-basis: 90px;
+      min-width: 90px;
+      max-width: 90px;
       margin-top: 0;
       margin-bottom: 0;
       margin-bottom: 4px;

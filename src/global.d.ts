@@ -8,3 +8,9 @@ export interface WhyAny {
   GenericTemplateArgument: any;
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
+
+declare module '*.png' {
+  const value: string;
+
+  export default value;
+}
