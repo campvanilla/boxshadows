@@ -1,12 +1,18 @@
 ## TODO
 
 - [x] Color Picker (@rheaditi)
-  - [x] onBlur close (requires ref)
-  - [x] padding fix
+  - [x] onBlur close (@rheaditi)
+  - [x] padding fix (@rheaditi)
 - [x] Preview (@abinavseelan)
-- [ ] Ordered Accordian Component (@abinavseelan)
-- [ ] Muliple Shadow support (@rheaditi)
+- [x] Accordian Component (@abinavseelan)
+- [x] Muliple Shadow support (@abinavseelan)
 - [x] Toggle Component (@abinavseelan)
-- [ ] UI cleanup
-  - [ ] BoxShadows Logo
-  - [x] Icons for each section
+- [ ] UI cleanup (@rheaditi)
+  - [x] BoxShadows Logo (@rheaditi)
+  - [x] Icons for each section (@rheaditi)
+- [ ] Remove and re-order shadows
+- [ ] PlayArea background color
+- [ ] What do we do about mobile??
+- [ ] Setup for deployment (@rheaditi)
+  - [ ] Integrate with now.sh
+  - [ ] SEO-ify
