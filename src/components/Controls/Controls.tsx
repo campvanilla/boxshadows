@@ -3,9 +3,23 @@ import { StoreContext } from '@contexts/Store';
 
 import { ControlsContainer } from './styles';
 import TextInput, { TextInputAddon } from '../TextInput';
+import { ColorInput } from '../ColorInput';
 
 const Controls = () => {
-  const [state, setters] = useContext(StoreContext);
+  const {state, updateState} = useContext(StoreContext);
+
+  const handleElementUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    updateState({
+      type: 'Element',
+      payload: {
+        key: name,
+        value: value,
+      }
+    })
+  }
+
   return (
     <ControlsContainer>
       <section className='control-section'>
@@ -15,31 +29,39 @@ const Controls = () => {
         <div className='control-row'>
           <h4 className='title'>Size</h4>
             <TextInput
+              value={state.element.height}
               className='control'
-              name='elementHeight'
+              name='height'
               append={<TextInputAddon>h</TextInputAddon>}
               placeholder='Height'
+              onChange={handleElementUpdate}
             />
             <TextInput
+              value={state.element.width}
               className='control'
-              name='elementWidth'
+              name='width'
               append={<TextInputAddon>w</TextInputAddon>}
               placeholder='Width'
+              onChange={handleElementUpdate}
             />
         </div>
         <div className='control-row'>
           <h4 className='title'>Border</h4>
             <TextInput
+              value={state.element.borderRadius}
               className='control'
-              name='elementBorderRadius'
+              name='borderRadius'
               append={<TextInputAddon>r</TextInputAddon>}
               placeholder='Radius'
+              onChange={handleElementUpdate}
             />
             <TextInput
+              value={state.element.borderThickness}
               className='control'
-              name='elementBorderWidth'
+              name='borderThickness'
               append={<TextInputAddon>w</TextInputAddon>}
               placeholder='Width'
+              onChange={handleElementUpdate}
             />
         </div>
       </section>
@@ -55,6 +77,7 @@ const Controls = () => {
             value='#F4F4F4'
             placeholder='Background Color'
           />
+          <ColorInput />
         </div>
         <div className='control-row'>
           <h4 className='title'>Border Color</h4>
