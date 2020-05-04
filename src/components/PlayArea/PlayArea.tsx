@@ -6,10 +6,12 @@ import { PlayAreaContainer, Preview } from './styles';
 const PlayArea = () => {
   const { state } = useContext(StoreContext);
 
+  const shadow = state.shadows.map(shadow => `${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blur}px ${shadow.spread}px ${shadow.color} ${shadow.inset ? 'inset' : ''}`).join(', ');
+
   return (
-    <PlayAreaContainer>
+    <PlayAreaContainer backgroundColor={state.playArea.backgroundColor}>
       <Preview
-        shadows={state.shadows}
+        shadow={shadow}
         height={state.element.height}
         width={state.element.width}
         backgroundColor={state.element.backgroundColor}

@@ -14,13 +14,15 @@
 - [x] Muliple Shadow support (@abinavseelan)
   - [x] Shadow Section icons
 - [x] Toggle Component (@abinavseelan)
-- [ ] UI cleanup (@rheaditi)
+- [x] UI cleanup (@rheaditi)
   - [x] BoxShadows Logo (@rheaditi)
   - [x] Icons for each section (@rheaditi)
-- [ ] Remove and re-order shadows
+- [x] Remove shadows (@rheaditi)
+- [ ] Re-order shadows ()
 - [x] PlayArea background color (@abinavseelan)
 - [ ] What do we do about mobile??
 - [ ] Setup for deployment (@rheaditi)
   - [x] Integrate with now.sh
   - [ ] SEO-ify
   - [ ] Add google analytics
+- [ ] Color picker crossing bounds.

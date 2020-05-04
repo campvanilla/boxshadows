@@ -8,7 +8,7 @@ interface ItemProps {
 }
 
 const Accordian = ({ children }) => {
-  const [order, updateOrder] = useState();
+  // const [order, updateOrder] = useState();
 
   return children;
 };
@@ -23,7 +23,9 @@ const Item: React.FC<ItemProps> = ({ heading, children, defaultOpen }) => {
   return (
     <AccordianItemContainer open={open}>
       <div className='header' onClick={handleHeaderClick}>
-        {heading}
+        <span className='header-label'>
+          {heading}
+        </span>
         <span className='toggle-btn'>&#10095;</span>
       </div>
       {

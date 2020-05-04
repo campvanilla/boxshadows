@@ -1,35 +1,42 @@
 import React, { useContext } from 'react';
 
-import { StoreContext, actions } from '@contexts/Store';
+import { StoreContext, ActionType } from '@contexts/Store';
 import Accordian from '@components/Accordian';
-// import Switch from '@components/Switch';
+import Switch from '@components/Switch';
 import { ColorInput, ColorChangeEvent } from '@components/ColorInput';
 import TextInput, { TextInputAddon } from '@components/TextInput';
-import { ShadowSectionIcon } from './icons';
+import { ShadowSectionIcon, TrashIcon } from '@components/icons';
 
 const ShadowControls = () => {
   const { state, updateState } = useContext(StoreContext);
 
   const addShadow = () => {
     updateState({
-      type: actions.AddShadow,
+      type: ActionType.AddShadow,
     });
   };
 
-  const handleShadowUpdate = (index: number) => (e: React.ChangeEvent<HTMLInputElement> | ColorChangeEvent) => {
+  const removeShadow = (id: number) => {
+    updateState({
+      type: ActionType.RemoveShadow,
+      payload: { id },
+    });
+  };
+
+  const handleShadowUpdate = (id: number) => (e: React.ChangeEvent<HTMLInputElement> | ColorChangeEvent) => {
     const { name, value } =
       typeof (e as React.ChangeEvent<HTMLInputElement>).target !== 'undefined'
         ? (e as React.ChangeEvent<HTMLInputElement>).target
         : (e as ColorChangeEvent);
 
     updateState({
-      type: actions.UpdateShadow,
+      type: ActionType.UpdateShadow,
       payload: {
-        shadowIndex: index,
+        id,
         key: name,
-        value,
-      }
-    })
+        value: value || (e as React.ChangeEvent<HTMLInputElement>).target.checked,
+      },
+    });
   }
 
   return (
@@ -43,7 +50,13 @@ const ShadowControls = () => {
       </h3>
       <Accordian>
         {state.shadows.map((shadow, index) => (
-          <Accordian.Item key={index} heading={`Shadow #${index + 1}`} defaultOpen={index === 0}>
+          <Accordian.Item key={shadow.id} heading={[
+            <TrashIcon key='trash' onClick={(e) => {
+              e.stopPropagation();
+              removeShadow(shadow.id);
+            }} />,
+            <span key='header-text'>Shadow #{state.shadows.length - index}</span>
+          ]} defaultOpen>
             <div className='control-row'>
               <h4 className='title'>Offset</h4>
               <TextInput
@@ -53,7 +66,7 @@ const ShadowControls = () => {
                 name='offsetX'
                 append={<TextInputAddon>x</TextInputAddon>}
                 placeholder='Offset X'
-                onChange={handleShadowUpdate(index)}
+                onChange={handleShadowUpdate(shadow.id)}
               />
               <TextInput
                 type='number'
@@ -62,7 +75,7 @@ const ShadowControls = () => {
                 name='offsetY'
                 append={<TextInputAddon>y</TextInputAddon>}
                 placeholder='Offset Y'
-                onChange={handleShadowUpdate(index)}
+                onChange={handleShadowUpdate(shadow.id)}
               />
             </div>
             <div className='control-row'>
@@ -73,7 +86,7 @@ const ShadowControls = () => {
                 className='control'
                 name='blur'
                 placeholder='Blur'
-                onChange={handleShadowUpdate(index)}
+                onChange={handleShadowUpdate(shadow.id)}
               />
             </div>
             <div className='control-row'>
@@ -84,14 +97,22 @@ const ShadowControls = () => {
                 className='control'
                 name='spread'
                 placeholder='Spread'
-                onChange={handleShadowUpdate(index)}
+                onChange={handleShadowUpdate(shadow.id)}
+              />
+            </div>
+            <div className='control-row'>
+              <h4 className='title'>Inset</h4>
+              <Switch
+                onChange={handleShadowUpdate(shadow.id)}
+                name='inset'
+                checked={shadow.inset}
               />
             </div>
             <div className='control-row'>
               <h4 className='title'>Shadow Color</h4>
               <ColorInput
                 className='control'
-                onChange={handleShadowUpdate(index)}
+                onChange={handleShadowUpdate(shadow.id)}
                 name='color'
                 value={shadow.color}
                 placeholder='Shadow Color'

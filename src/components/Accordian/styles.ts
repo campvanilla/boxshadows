@@ -21,10 +21,18 @@ export const AccordianItemContainer = styled.section<AccordianItemContainerProps
     padding: 20px 16px;
   }
 
+  .header-label {
+    display: inline-flex;
+    align-items: center;
+
+    svg { margin-right: 8px; }
+  }
+
   .toggle-btn {
     color: ${props => props.theme.colors.nepal};
     transform: ${(props) => (props.open ? 'rotateZ(270deg)' : 'rotateZ(90deg)')};
     transition: transform 0.15s ease-out, color 0.15s ease-out;
+    user-select: none;
 
     &:hover {
       color: ${props => props.theme.colors.hoki};

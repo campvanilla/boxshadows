@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 
 import TextInput, { TextInputAddon } from '@components/TextInput';
-import { StoreContext, actions } from '@contexts/Store';
-import { ElementSectionIcon } from './icons';
+import { StoreContext, ActionType } from '@contexts/Store';
+import { ElementSectionIcon } from '@components/icons';
 
 const ElementControls = () => {
   const { state, updateState } = useContext(StoreContext);
@@ -11,7 +11,7 @@ const ElementControls = () => {
     const { name, value } = e.target;
 
     updateState({
-      type: actions.UpdateElement,
+      type: ActionType.UpdateElement,
       payload: {
         key: name,
         value: value,
