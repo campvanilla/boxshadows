@@ -1,3 +1,9 @@
+# <img width="200" alt="logo-light-medium-400x70" src="https://user-images.githubusercontent.com/6426069/80978746-16395d80-8e44-11ea-887e-b04a715f66fb.png">
+
+⚠️ WIP
+
+---
+
 ## TODO
 
 - [x] Color Picker (@rheaditi)
