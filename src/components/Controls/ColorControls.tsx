@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
 
 import { StoreContext } from '@contexts/Store';
-import { ColorInput } from '@components/ColorInput';
+import { ColorInput, ColorChangeEvent } from '@components/ColorInput';
 
 const ColorControls = () => {
   const { state, updateState } = useContext(StoreContext);
 
-  const handleElementUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  const handleElementUpdate = (e: React.ChangeEvent<HTMLInputElement> | ColorChangeEvent) => {
+    const { name, value } = (
+      typeof (e as React.ChangeEvent<HTMLInputElement>).target !== 'undefined'
+        ? (e as React.ChangeEvent<HTMLInputElement>).target
+        : e as ColorChangeEvent
+      );
 
     updateState({
       type: 'Element',

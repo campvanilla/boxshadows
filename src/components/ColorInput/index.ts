@@ -1,1 +1,1 @@
-export { ColorInput, ColorInputProps } from './ColorInput';
+export { ColorInput, ColorInputProps, ColorChangeEvent } from './ColorInput';

@@ -5,23 +5,25 @@ import { FieldContainer, StyledInput } from './styles';
 import { renderChild } from '@src/utils/react';
 import isFunction from 'lodash/fp/isFunction';
 
-interface TextInput {
+interface TextInputOwnProps {
   prepend?: React.ReactNode;
   append?: React.ReactNode;
+  name: string;
+  value: string;
 }
 
-type TextInputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & TextInput;
+export type TextInputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & TextInputOwnProps;
 
-const TextInput: React.FC<TextInputProps> = (props) => {
+const TextInputOwnProps: React.FC<TextInputProps> = (props) => {
   const {
     prepend,
     append,
     className,
-    id,
     value,
     onChange,
     onFocus: propOnFocus,
     onBlur: propOnBlur,
+    ref,
     ...rest
   } = props;
 
@@ -40,21 +42,27 @@ const TextInput: React.FC<TextInputProps> = (props) => {
   return (
     <FieldContainer className={className} fieldFocused={focused}>
       {renderChild(prepend)}
-      <StyledInput {...rest as any} id={id} value={value} onChange={onChange} onFocus={onFocus} onBlur={onBlur} />
+      <StyledInput
+         {...rest}
+          value={value}
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        />
       {renderChild(append)}
     </FieldContainer>
   )
 }
 
-TextInput.propTypes = {
+TextInputOwnProps.propTypes = {
   prepend: PropTypes.node,
   append: PropTypes.node,
   className: PropTypes.string,
 };
 
-TextInput.defaultProps = {
+TextInputOwnProps.defaultProps = {
   prepend: null,
   append: null,
   className: '',
 }
-export default TextInput;
+export default TextInputOwnProps;
