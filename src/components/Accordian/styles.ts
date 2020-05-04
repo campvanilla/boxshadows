@@ -22,8 +22,13 @@ export const AccordianItemContainer = styled.section<AccordianItemContainerProps
   }
 
   .toggle-btn {
-    transform: ${(props) => (props.open ? 'rotateZ(0deg)' : 'rotateZ(180deg)')};
-    transition: transform 0.15s ease-out;
+    color: ${props => props.theme.colors.nepal};
+    transform: ${(props) => (props.open ? 'rotateZ(270deg)' : 'rotateZ(90deg)')};
+    transition: transform 0.15s ease-out, color 0.15s ease-out;
+
+    &:hover {
+      color: ${props => props.theme.colors.hoki};
+    }
   }
 
   .content {

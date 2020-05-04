@@ -1,17 +1,18 @@
-import baseStyled, { ThemedStyledInterface } from 'styled-components';
+  import baseStyled, { ThemedStyledInterface } from 'styled-components';
 
 export const Theme = {
   colors: {
-    heather: '#BFC9D9',
-    cloudBurst: '#253858',
     wildSand: '#F4F4F4',
     brightTurquoise: '#03DFD8',
     white: '#FFFFFF',
     gallery: '#EBEBEB',
     pacificBlue: '#009AC9',
+    cloudBurst: '#253858',
     nepal: '#899DBF',
+    heather: '#BFC9D9',
     mischka: '#BFC9D9',
     whiteish: '#FDFDFD',
+    hoki: '#647ba0',
   }
 };
 

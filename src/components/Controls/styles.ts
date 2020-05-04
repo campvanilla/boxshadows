@@ -66,7 +66,15 @@ export const Aside = styled.aside`
 
     .add-btn {
       border: none;
+      font-size: 24px;
+      font-weight: 300;
+      color: ${props => props.theme.colors.nepal};
+      transition: color 0.15s ease-out;
       background: none;
+
+      &:hover {
+        color: ${props => props.theme.colors.hoki};
+      }
     }
   }
 

@@ -12,13 +12,15 @@
 - [x] Preview (@abinavseelan)
 - [x] Accordian Component (@abinavseelan)
 - [x] Muliple Shadow support (@abinavseelan)
+  - [x] Shadow Section icons
 - [x] Toggle Component (@abinavseelan)
 - [ ] UI cleanup (@rheaditi)
   - [x] BoxShadows Logo (@rheaditi)
   - [x] Icons for each section (@rheaditi)
 - [ ] Remove and re-order shadows
-- [ ] PlayArea background color
+- [x] PlayArea background color (@abinavseelan)
 - [ ] What do we do about mobile??
 - [ ] Setup for deployment (@rheaditi)
-  - [ ] Integrate with now.sh
+  - [x] Integrate with now.sh
   - [ ] SEO-ify
+  - [ ] Add google analytics

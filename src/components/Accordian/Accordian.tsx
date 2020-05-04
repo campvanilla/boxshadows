@@ -24,7 +24,7 @@ const Item: React.FC<ItemProps> = ({ heading, children, defaultOpen }) => {
     <AccordianItemContainer open={open}>
       <div className='header' onClick={handleHeaderClick}>
         {heading}
-        <span className='toggle-btn'> ^ </span>
+        <span className='toggle-btn'>&#10095;</span>
       </div>
       {
         open

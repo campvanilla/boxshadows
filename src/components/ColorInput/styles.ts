@@ -6,6 +6,7 @@ export const ColorInputWrapper = styled.span`
 
 export const ColorIndicator = styled.span<{ color: string }>`
   display: inline-block;
+  border: 1px solid ${props => props.theme.colors.heather};
   width: 14px;
   height: 14px;
   background-color: ${props => props.color};
