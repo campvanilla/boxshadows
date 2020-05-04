@@ -32,6 +32,9 @@ module.exports = {
       '@contexts': path.resolve('./src/contexts'),
       '@assets': path.resolve('./src/assets'),
       '@utils': path.resolve('./src/utils'),
+
+      "react": "preact/compat",
+      "react-dom": "preact/compat",
     },
   },
 
