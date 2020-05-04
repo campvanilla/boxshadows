@@ -1,32 +1,32 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "target": "es2017",
+    "module": "ES2015",
+    "target": "es2020",
     "noImplicitAny": false,
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "lib": [ "dom", "esnext" ],
-    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "moduleResolution": "node",
     "paths": {
-      "@src/*": [ "src/*" ],
-      "@styles/*": [ "src/styles/*" ],
-      "@components/*": [ "src/components/*" ],
-      "@contexts/*": [ "src/contexts/*" ],
-      "@assets/*": [ "src/assets/*" ],
-      "@utils/*": [ "src/utils/*" ]
+      "@src/*": ["src/*"],
+      "@styles/*": ["src/styles/*"],
+      "@components/*": ["src/components/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
-  "include": [ "./src/**/*" ],
-  "exclude": [ "node_modules" ],
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"],
   "awesomeTypescriptLoaderOptions": {
     "useCache": true,
     "transpileOnly": true,
     "forceIsolatedModules": true
-  },
+  }
 }

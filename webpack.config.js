@@ -3,7 +3,9 @@ const path = require('path');
 
 // plugins
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin');
 
 // variables
 const PROD = process.env.NODE_ENV === 'production';
@@ -17,7 +19,7 @@ module.exports = {
   mode: PROD ? 'production' : 'development',
 
   output: {
-    filename: 'js/[name].bundle.js',
+    filename: DEV ? 'js/[name].bundle.js' : 'js/[name].[contenthash:6].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
@@ -31,6 +33,9 @@ module.exports = {
       '@contexts': path.resolve('./src/contexts'),
       '@assets': path.resolve('./src/assets'),
       '@utils': path.resolve('./src/utils'),
+
+      "react": "preact/compat",
+      "react-dom": "preact/compat",
     },
   },
 
@@ -38,7 +43,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: ['babel-loader','awesome-typescript-loader' ],
+        use: ['babel-loader', 'awesome-typescript-loader'],
         exclude: /node_modules/,
       },
       {
@@ -56,9 +61,11 @@ module.exports = {
       __DEV__: JSON.stringify(!!DEV),
       __PROD__: JSON.stringify(!!PROD),
     }),
-    PROD && new HTMLWebpackPlugin({
+    PROD &&
+    new HTMLWebpackPlugin({
       template: './src/index.html',
     }),
+    process.env.ANALYZE_BUNDLES !== 'true' &&
     new FaviconsWebpackPlugin({
       logo: './src/assets/favicon.svg',
       favicons: {
@@ -67,13 +74,28 @@ module.exports = {
         theme_color: '#03DFD8',
         orientation: 'landscape',
         icons: {
-          favicons: true,             // Create regular favicons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-          firefox: true,              // Create Firefox OS icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-          windows: true,              // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+          favicons: true, // Create regular favicons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+          firefox: true, // Create Firefox OS icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+          windows: true, // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
         },
-      }
-    })
+      },
+    }),
+    process.env.ANALYZE_BUNDLES === 'true' && new BundleAnalyzerPlugin(),
   ].filter(Boolean),
+
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'initial',
+          priority: 1,
+        }
+      }
+    },
+    minimize: PROD,
+    minimizer: [new TerserPlugin()],
+  },
   devServer: {
     compress: true,
     port: 7335,
