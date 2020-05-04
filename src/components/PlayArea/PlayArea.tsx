@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { PlayAreaContainer } from './styles';
+import { StoreContext } from '@contexts/Store';
+import { PlayAreaContainer, Preview } from './styles';
 
 const PlayArea = () => {
+  const { state } = useContext(StoreContext);
+
   return (
-    <PlayAreaContainer />
+    <PlayAreaContainer>
+      <Preview
+        height={state.element.height}
+        width={state.element.width}
+        backgroundColor={state.element.backgroundColor}
+        borderColor={state.element.borderColor}
+        borderRadius={state.element.borderRadius}
+        borderThickness={state.element.borderThickness}
+      />
+    </PlayAreaContainer>
   )
 }
 

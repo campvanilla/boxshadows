@@ -1,6 +1,6 @@
 ## TODO
 
 - [ ] Color Picker (@rheaditi)
-- [ ] Preview (@abinavseelan)
-- [ ] Muliple Shadow support
+- [x] Preview (@abinavseelan)
+- [ ] Muliple Shadow support (@abinavseelan)
 - [ ] UI cleanup

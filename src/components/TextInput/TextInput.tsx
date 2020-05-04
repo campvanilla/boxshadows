@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { FieldContainer, StyledInput } from './styles';
 import { renderChild } from '@src/utils/react';
+import isFunction from 'lodash/fp/isFunction';
 
 interface TextInput {
   prepend?: React.ReactNode;
@@ -19,15 +20,21 @@ const TextInput: React.FC<TextInputProps> = (props) => {
     id,
     value,
     onChange,
+    onFocus: propOnFocus,
+    onBlur: propOnBlur,
     ...rest
   } = props;
 
   const [focused, setFocus] = React.useState(false);
-  const onFocus = () => {
+  const onFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     setFocus(true);
+
+    if (isFunction(propOnFocus)) propOnFocus(e);
   }
-  const onBlur = () => {
+  const onBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     setFocus(false);
+
+    if (isFunction(propOnBlur)) propOnBlur(e);
   }
 
   return (
