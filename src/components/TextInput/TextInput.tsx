@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropsWithRef } from 'react';
 import PropTypes from 'prop-types';
 
-import { FieldContainer, StyledInput } from './styles';
+import { FieldContainer} from './styles';
 import { renderChild } from '@src/utils/react';
 import isFunction from 'lodash/fp/isFunction';
 
@@ -12,9 +12,9 @@ interface TextInputOwnProps {
   value: string;
 }
 
-export type TextInputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & TextInputOwnProps;
+export type TextInputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & PropsWithRef<TextInputOwnProps>;
 
-const TextInputOwnProps: React.FC<TextInputProps> = (props) => {
+const TextInputWithRef: React.FC<TextInputProps> = React.forwardRef((props: TextInputProps, ref) => {
   const {
     prepend,
     append,
@@ -23,7 +23,6 @@ const TextInputOwnProps: React.FC<TextInputProps> = (props) => {
     onChange,
     onFocus: propOnFocus,
     onBlur: propOnBlur,
-    ref,
     ...rest
   } = props;
 
@@ -42,8 +41,10 @@ const TextInputOwnProps: React.FC<TextInputProps> = (props) => {
   return (
     <FieldContainer className={className} fieldFocused={focused}>
       {renderChild(prepend)}
-      <StyledInput
-         {...rest}
+      <input
+          {...rest}
+          className='input-field'
+          ref={ref}
           value={value}
           onChange={onChange}
           onFocus={onFocus}
@@ -52,17 +53,20 @@ const TextInputOwnProps: React.FC<TextInputProps> = (props) => {
       {renderChild(append)}
     </FieldContainer>
   )
-}
+});
 
-TextInputOwnProps.propTypes = {
+TextInputWithRef.displayName = 'TextInput';
+
+TextInputWithRef.propTypes = {
   prepend: PropTypes.node,
   append: PropTypes.node,
   className: PropTypes.string,
 };
 
-TextInputOwnProps.defaultProps = {
+TextInputWithRef.defaultProps = {
   prepend: null,
   append: null,
   className: '',
 }
-export default TextInputOwnProps;
+
+export default TextInputWithRef;

@@ -1,10 +1,10 @@
 import { SketchPicker } from 'react-color';
 import isFunction from 'lodash/fp/isFunction';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import type { ColorChangeHandler } from 'react-color';
 
-import TextInput, { TextInputProps } from '@components/TextInput';
-import { ColorIndicator,PickerContainer, ColorInputWrapper } from '@components/ColorInput/styles';
+import TextInput, { TextInputProps, TextInputAddon } from '@components/TextInput';
+import { ColorIndicator, PickerContainer, ColorInputWrapper, PickerOverlay } from '@components/ColorInput/styles';
 
 export interface ColorChangeEvent {
   name: string; value: string;
@@ -17,12 +17,13 @@ export interface ColorInputProps extends TextInputProps {
 export const ColorInput: React.FC<ColorInputProps> = ({
   value,
   name,
-  onBlur,
   onFocus,
   onChange,
   ...rest
 }: ColorInputProps) => {
   const [isActive, setActive] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const activateOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     if (isFunction(onFocus)) {
       onFocus(e);
@@ -31,13 +32,14 @@ export const ColorInput: React.FC<ColorInputProps> = ({
   };
 
   const activateOnClick = () => {
+    inputRef.current?.focus();
     setActive(true);
   };
 
-  const deactivate = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (isFunction(onBlur)) {
-      onBlur(e);
-    }
+  const deactivate = () => {
+    // if (isFunction(onBlur)) {
+    //   onBlur(e);
+    // }
     setActive(false);
   };
 
@@ -49,23 +51,26 @@ export const ColorInput: React.FC<ColorInputProps> = ({
     }
   };
 
-  const indicator = (<ColorIndicator color={value}
-   onClick={activateOnClick}
-  />);
+  const indicator = (<TextInputAddon>
+    <ColorIndicator color={value}
+     onClick={activateOnClick}
+    />
+  </TextInputAddon>);
 
 
   return (<ColorInputWrapper>
     <TextInput
       {...rest}
+      ref={inputRef}
       onFocus={activateOnFocus}
-      onBlur={deactivate}
       name={name}
       value={value}
       prepend={indicator}
       onChange={onChange}
      />
     {isActive && <PickerContainer>
-      <SketchPicker onChange={onPickerChange} />
+      <PickerOverlay onClick={deactivate} />
+        <SketchPicker onChange={onPickerChange} />
     </PickerContainer>}
   </ColorInputWrapper>);
 }

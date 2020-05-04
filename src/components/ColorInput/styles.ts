@@ -6,13 +6,21 @@ export const ColorInputWrapper = styled.span`
 
 export const ColorIndicator = styled.span<{ color: string }>`
   display: inline-block;
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   background-color: ${props => props.color};
   border-radius: 4px;
 `;
 
 export const PickerContainer = styled.div`
   position: absolute;
-  z-index: 2
+  z-index: 2;
+`;
+
+export const PickerOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 `;

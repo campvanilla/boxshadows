@@ -1,22 +1,14 @@
 import styled, { css } from 'styled-components';
 
-export const StyledInput = styled.input`
-  font-size: inherit;
-  padding: 8px;
-  color: currentColor;
-  border: none;
-  width: 100%;
-
-  &, &:hover, &:active, &:focus {
-    outline: none;
-  }
-`;
-
 export const Addon = styled.span`
   padding-left: 8px;
   padding-right: 8px;
   color: ${props => props.theme.colors.heather};
   user-select: none;
+
+  &:first-child {
+    padding-right: 0;
+  }
 `;
 
 export const FieldContainer = styled.span<{
@@ -27,8 +19,9 @@ export const FieldContainer = styled.span<{
   display: inline-flex;
   align-items: center;
   transition: border-color 0.15s ease-out;
+  line-height: 0;
 
-  &, ${StyledInput} {
+  &, input.input-field {
     border-radius: 4px;
   }
 
@@ -38,5 +31,17 @@ export const FieldContainer = styled.span<{
 
   &:hover {
     border-color: ${props => props.theme.colors.nepal};
+  }
+
+  input.input-field {
+    font-size: inherit;
+    padding: 8px;
+    color: currentColor;
+    border: none;
+    width: 100%;
+
+    &, &:hover, &:active, &:focus {
+      outline: none;
+    }
   }
 `;
