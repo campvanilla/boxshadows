@@ -1,15 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 
+// plugins
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+
+// variables
 const PROD = process.env.NODE_ENV === 'production';
 const DEV = !PROD;
 
 module.exports = {
   entry: {
-    app: [
-      './src/index.tsx',
-    ].filter(Boolean),
+    app: './src/index.tsx',
   },
 
   mode: PROD ? 'production' : 'development',
@@ -36,13 +38,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: [{
-          loader: 'babel-loader',
-        },
-        {
-          loader: 'awesome-typescript-loader',
-        },
-        ],
+        use: ['babel-loader','awesome-typescript-loader' ],
         exclude: /node_modules/,
       },
       {
@@ -60,9 +56,23 @@ module.exports = {
       __DEV__: JSON.stringify(!!DEV),
       __PROD__: JSON.stringify(!!PROD),
     }),
-    new HTMLWebpackPlugin({
+    PROD && new HTMLWebpackPlugin({
       template: './src/index.html',
     }),
+    new FaviconsWebpackPlugin({
+      logo: './src/assets/favicon.svg',
+      favicons: {
+        appName: 'boxshadows.com',
+        lang: 'en-US',
+        theme_color: '#03DFD8',
+        orientation: 'landscape',
+        icons: {
+          favicons: true,             // Create regular favicons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+          firefox: true,              // Create Firefox OS icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+          windows: true,              // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+        },
+      }
+    })
   ].filter(Boolean),
   devServer: {
     compress: true,
