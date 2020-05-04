@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { StoreContext } from '@contexts/Store';
 
 import { ControlsContainer } from './styles';
-import TextInput from '../TextInput';
+import TextInput, { TextInputAddon } from '../TextInput';
 
 const Controls = () => {
+  const [state, setters] = useContext(StoreContext);
   return (
     <ControlsContainer>
       <section className='control-section'>
@@ -15,13 +17,13 @@ const Controls = () => {
             <TextInput
               className='control'
               name='elementHeight'
-              append='h'
+              append={<TextInputAddon>h</TextInputAddon>}
               placeholder='Height'
             />
             <TextInput
               className='control'
               name='elementWidth'
-              append='w'
+              append={<TextInputAddon>w</TextInputAddon>}
               placeholder='Width'
             />
         </div>
@@ -30,13 +32,13 @@ const Controls = () => {
             <TextInput
               className='control'
               name='elementBorderRadius'
-              append='r'
+              append={<TextInputAddon>r</TextInputAddon>}
               placeholder='Radius'
             />
             <TextInput
               className='control'
               name='elementBorderWidth'
-              append='w'
+              append={<TextInputAddon>w</TextInputAddon>}
               placeholder='Width'
             />
         </div>

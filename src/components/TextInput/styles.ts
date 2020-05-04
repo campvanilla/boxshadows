@@ -1,30 +1,42 @@
-import Styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = Styled.span`
-  border: 1px solid ${props => props.theme.colors.heather};
+export const StyledInput = styled.input`
+  font-size: inherit;
   padding: 8px;
+  color: currentColor;
+  border: none;
+  width: 100%;
+
+  &, &:hover, &:active, &:focus {
+    outline: none;
+  }
+`;
+
+export const Addon = styled.span`
+  padding-left: 8px;
+  padding-right: 8px;
+  color: ${props => props.theme.colors.heather};
+  user-select: none;
+`;
+
+export const FieldContainer = styled.span<{
+  fieldFocused: boolean;
+}>`
+  border: 1px solid ${props => props.theme.colors.heather};
   background-color: ${props => props.theme.colors.white};
-  border-radius: 4px;
   display: inline-flex;
   align-items: center;
-  max-height: 34px;
+  transition: border-color 0.15s ease-out;
 
-  .input {
-    border: none;
-    outline: none;
-    width: 100%;
+  &, ${StyledInput} {
+    border-radius: 4px;
   }
 
-  .append,
-  .prepend {
-    color: ${props => props.theme.colors.heather};
-  }
+  ${props => props.fieldFocused && css`
+    border-color: ${props.theme.colors.pacificBlue};
+  `}
 
-  .prepend {
-    margin-right: 4px;
-  }
-
-  .append {
-    margin-left: 4px;
+  &:hover {
+    border-color: ${props => props.theme.colors.nepal};
   }
 `;

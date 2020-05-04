@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container } from './styles';
+import { FieldContainer, StyledInput } from './styles';
+import { renderChild } from '@src/utils/react';
 
 interface TextInput {
   prepend?: React.ReactNode;
@@ -15,35 +16,26 @@ const TextInput: React.FC<TextInputProps> = (props) => {
     prepend,
     append,
     className,
+    id,
+    value,
+    onChange,
     ...rest
   } = props;
 
+  const [focused, setFocus] = React.useState(false);
+  const onFocus = () => {
+    setFocus(true);
+  }
+  const onBlur = () => {
+    setFocus(false);
+  }
+
   return (
-    <Container tabIndex={-1} className={className}>
-      {
-        prepend
-          ? (
-            <span className='prepend'>
-              {prepend}
-            </span>
-          )
-          : (
-            null
-          )
-      }
-      <input className='input' {...rest} />
-      {
-        append
-          ? (
-            <span className='append'>
-              {append}
-            </span>
-          )
-          : (
-            null
-          )
-      }
-    </Container>
+    <FieldContainer className={className} fieldFocused={focused}>
+      {renderChild(prepend)}
+      <StyledInput {...rest as any} id={id} value={value} onChange={onChange} onFocus={onFocus} onBlur={onBlur} />
+      {renderChild(append)}
+    </FieldContainer>
   )
 }
 
@@ -58,5 +50,4 @@ TextInput.defaultProps = {
   append: null,
   className: '',
 }
-
 export default TextInput;
