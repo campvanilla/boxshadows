@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "NODE_ENV=development webpack --progress --watch & http-server -p 3000 ./dist",
+    "start": "npm run start:dev",
     "lint": "eslint --ext .ts,.tsx ./"
   },
   "husky": {
