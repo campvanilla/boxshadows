@@ -1,4 +1,4 @@
-import { SketchPicker } from 'react-color';
+import SketchPicker from 'react-color/lib/Sketch';
 import {isFunction} from '@utils/lang';
 import React, { useState, useRef } from 'react';
 import type { ColorChangeHandler } from 'react-color';

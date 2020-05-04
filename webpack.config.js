@@ -18,7 +18,7 @@ module.exports = {
   mode: PROD ? 'production' : 'development',
 
   output: {
-    filename: 'js/[name].bundle.js',
+    filename: DEV ? 'js/[name].bundle.js' : 'js/[name].[contenthash:6].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
@@ -76,6 +76,19 @@ module.exports = {
     }),
     process.env.ANALYZE_BUNDLES === 'true' && new BundleAnalyzerPlugin(),
   ].filter(Boolean),
+
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          name: 'vendor',
+          test: 'vendor',
+          enforce: true
+        },
+      }
+    },
+  },
   devServer: {
     compress: true,
     port: 7335,
