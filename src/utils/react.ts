@@ -1,5 +1,5 @@
 import React from 'react';
-import isFunction from 'lodash/fp/isFunction';
+import {isFunction} from '@utils/lang';
 import { WhyAny } from '@src/global';
 
 interface RenderPropFunction<Args = WhyAny['GenericTemplateArgument']> {

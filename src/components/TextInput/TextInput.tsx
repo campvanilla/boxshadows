@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { FieldContainer} from './styles';
 import { renderChild } from '@src/utils/react';
-import isFunction from 'lodash/fp/isFunction';
+import {isFunction} from '@utils/lang';
 
 interface TextInputOwnProps {
   prepend?: React.ReactNode;

@@ -1,5 +1,5 @@
 import { SketchPicker } from 'react-color';
-import isFunction from 'lodash/fp/isFunction';
+import {isFunction} from '@utils/lang';
 import React, { useState, useRef } from 'react';
 import type { ColorChangeHandler } from 'react-color';
 
@@ -37,9 +37,6 @@ export const ColorInput: React.FC<ColorInputProps> = ({
   };
 
   const deactivate = () => {
-    // if (isFunction(onBlur)) {
-    //   onBlur(e);
-    // }
     setActive(false);
   };
 

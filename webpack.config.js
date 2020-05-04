@@ -3,7 +3,8 @@ const path = require('path');
 
 // plugins
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // variables
 const PROD = process.env.NODE_ENV === 'production';
@@ -59,7 +60,7 @@ module.exports = {
     PROD && new HTMLWebpackPlugin({
       template: './src/index.html',
     }),
-    new FaviconsWebpackPlugin({
+    process.env.ANALYZE_BUNDLES !== 'true' && new FaviconsWebpackPlugin({
       logo: './src/assets/favicon.svg',
       favicons: {
         appName: 'boxshadows.com',
@@ -72,7 +73,8 @@ module.exports = {
           windows: true,              // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
         },
       }
-    })
+    }),
+    process.env.ANALYZE_BUNDLES === 'true' && new BundleAnalyzerPlugin(),
   ].filter(Boolean),
   devServer: {
     compress: true,
