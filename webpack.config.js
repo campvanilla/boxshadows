@@ -39,7 +39,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: ['babel-loader','awesome-typescript-loader' ],
+        use: ['babel-loader', 'awesome-typescript-loader'],
         exclude: /node_modules/,
       },
       {
@@ -57,10 +57,12 @@ module.exports = {
       __DEV__: JSON.stringify(!!DEV),
       __PROD__: JSON.stringify(!!PROD),
     }),
-    PROD && new HTMLWebpackPlugin({
+    PROD &&
+    new HTMLWebpackPlugin({
       template: './src/index.html',
     }),
-    process.env.ANALYZE_BUNDLES !== 'true' && new FaviconsWebpackPlugin({
+    process.env.ANALYZE_BUNDLES !== 'true' &&
+    new FaviconsWebpackPlugin({
       logo: './src/assets/favicon.svg',
       favicons: {
         appName: 'boxshadows.com',
@@ -68,11 +70,11 @@ module.exports = {
         theme_color: '#03DFD8',
         orientation: 'landscape',
         icons: {
-          favicons: true,             // Create regular favicons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-          firefox: true,              // Create Firefox OS icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
-          windows: true,              // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+          favicons: true, // Create regular favicons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+          firefox: true, // Create Firefox OS icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
+          windows: true, // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
         },
-      }
+      },
     }),
     process.env.ANALYZE_BUNDLES === 'true' && new BundleAnalyzerPlugin(),
   ].filter(Boolean),
@@ -80,14 +82,13 @@ module.exports = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        vendor: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
           chunks: 'initial',
-          name: 'vendor',
-          test: 'vendor',
-          enforce: true
-        },
+          priority: 1,
+        }
       }
-    },
+    }
   },
   devServer: {
     compress: true,
