@@ -11,11 +11,27 @@ export const ControlsContainer = Styled.div`
   }
 
   .control-section-heading {
+    display: flex;
     font-size: 16px;
+    line-height: 1;
     font-weight: 500;
     color: ${props => props.theme.colors.cloudBurst};
     margin: 0;
     margin-bottom: 24px;
+    align-items: center;
+
+    span, svg {
+      display: inline-flex;
+    }
+
+    span {
+      font-weight: 500;
+      flex-grow: 1;
+    }
+
+    svg {
+      margin-right: 8px;
+    }
   }
 
   .control-row {

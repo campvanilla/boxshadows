@@ -2,16 +2,16 @@ import React, { useContext } from 'react';
 
 import { StoreContext } from '@contexts/Store';
 import { ColorInput, ColorChangeEvent } from '@components/ColorInput';
+import { ColorSectionIcon } from './icons';
 
 const ColorControls = () => {
   const { state, updateState } = useContext(StoreContext);
 
   const handleElementUpdate = (e: React.ChangeEvent<HTMLInputElement> | ColorChangeEvent) => {
-    const { name, value } = (
+    const { name, value } =
       typeof (e as React.ChangeEvent<HTMLInputElement>).target !== 'undefined'
         ? (e as React.ChangeEvent<HTMLInputElement>).target
-        : e as ColorChangeEvent
-      );
+        : (e as ColorChangeEvent);
 
     updateState({
       type: 'Element',
@@ -24,7 +24,10 @@ const ColorControls = () => {
 
   return (
     <section className='control-section'>
-      <h3 className='control-section-heading'>Colors</h3>
+      <h3 className='control-section-heading'>
+        <ColorSectionIcon />
+        <span>Colors</span>
+      </h3>
       <div className='control-row'>
         <h4 className='title'>Background Color</h4>
         <ColorInput
@@ -47,6 +50,6 @@ const ColorControls = () => {
       </div>
     </section>
   );
-}
+};
 
 export default ColorControls;
