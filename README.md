@@ -24,5 +24,6 @@
 - [ ] Setup for deployment (@rheaditi)
   - [x] Integrate with now.sh
   - [ ] SEO-ify
-  - [ ] Add google analytics
+  - [x] Add google analytics
 - [ ] Color picker crossing bounds.
+- [ ] Copy to Clipboard (@abinavseelan)
