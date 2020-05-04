@@ -4,8 +4,8 @@ import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from '@styles/globalStyles';
 import { Theme } from '@styles/theme';
-
-import TextInput from '@components/TextInput';
+import PlayArea from './components/PlayArea';
+import Controls from './components/Controls';
 
 const App = () => (
   <>
@@ -13,8 +13,8 @@ const App = () => (
       theme={Theme}
     >
       <GlobalStyles />
-      <TextInput placeholder='Name' append='x' />
-      <p>Hello World!</p>
+      <PlayArea />
+      <Controls/>
     </ThemeProvider>
   </>
 );

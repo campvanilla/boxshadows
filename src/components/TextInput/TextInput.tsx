@@ -14,11 +14,12 @@ const TextInput: React.FC<TextInputProps> = (props) => {
   const {
     prepend,
     append,
+    className,
     ...rest
   } = props;
 
   return (
-    <Container tabIndex={-1}>
+    <Container tabIndex={-1} className={className}>
       {
         prepend
           ? (
@@ -49,11 +50,13 @@ const TextInput: React.FC<TextInputProps> = (props) => {
 TextInput.propTypes = {
   prepend: PropTypes.node,
   append: PropTypes.node,
+  className: PropTypes.string,
 };
 
 TextInput.defaultProps = {
   prepend: null,
   append: null,
+  className: '',
 }
 
 export default TextInput;

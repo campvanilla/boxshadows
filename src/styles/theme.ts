@@ -6,6 +6,8 @@ export const Theme = {
     cloudBurst: '#253858',
     wildSand: '#F4F4F4',
     brightTurquoise: '#03DFD8',
+    white: '#FFFFFF',
+    gallery: '#EBEBEB',
   }
 };
 
