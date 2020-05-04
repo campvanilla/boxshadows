@@ -12,14 +12,15 @@ export const Footer = styled.footer`
   border-top: 1px solid ${props => props.theme.colors.heather};
   display: flex;
   flex-basis: 60px;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: row;
   width: 100%;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding: 16px 18px;
   background-color: ${props => props.theme.colors.wildSand};
   box-shadow: 0 1px 3px 1px rgba(50,50,93,.11), 0 -1px 10px rgba(0,0,0,.08);
 `;
+
 
 export const Aside = styled.aside`
   background-color: ${props => props.theme.colors.wildSand};
