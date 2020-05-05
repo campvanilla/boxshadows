@@ -31,7 +31,7 @@ const ShadowControls = () => {
         payload: {
           id,
           key: name,
-          value: typeof checked !== 'undefined' ? checked : value,
+          value: name === 'inset' ? checked : value,
         },
       });
     } else {

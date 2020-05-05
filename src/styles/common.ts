@@ -11,7 +11,9 @@ const fadeIn = keyframes`
 
 export const AppWrapper = styled.div`
   animation: ${fadeIn} 0.75s;
-  height: ${`${window.innerHeight}px`};
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  height: 100vh;
   width: 100vw;
   overflow: hidden;
 `;

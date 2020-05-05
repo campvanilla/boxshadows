@@ -36,7 +36,6 @@ export const PresetContainer = styled.article<PresetContainerProps>`
   .actions-column {
     list-style-type: none;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     height: 160px;
     padding-left: 20px;
@@ -51,6 +50,7 @@ export const PresetContainer = styled.article<PresetContainerProps>`
     transition: color 0.15s ease-out;
     font-size: 12px;
     cursor: pointer;
+    margin-bottom: 8px;
 
     display: flex;
     flex-direction: column;
