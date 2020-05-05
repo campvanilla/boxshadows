@@ -7,6 +7,7 @@ interface PlayAreaContainerProps {
 export const PlayAreaContainer = Styled.main<PlayAreaContainerProps>`
   flex-grow: 1;
   overflow: auto;
+  padding: 50px;
 
   display: flex;
   align-items: center;

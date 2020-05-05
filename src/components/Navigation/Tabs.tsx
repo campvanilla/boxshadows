@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { NavLink as BaseNavLink } from 'react-router-dom';
 
 const NAV_LINK_ACTIVE_CLASSNAME = 'active';
@@ -27,9 +26,7 @@ const NavLink = styled(BaseNavLink).attrs({
 const TabsContainer = styled.nav`
   display: inline-flex;
   position: fixed;
-  width: 100%;
   background-color: ${props => props.theme.colors.white};
-  z-index: ${props => props.theme.zIndices.tabsNavigation};
   top: 0;
   left: 0;
   padding: 10px;

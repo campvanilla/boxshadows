@@ -1,6 +1,8 @@
 import React, { useReducer } from 'react';
 import { Theme } from '@styles/theme';
 
+import { Shadow } from '@common/types';
+
 const initialState = {
   playArea: {
     backgroundColor: Theme.colors.white,
@@ -37,6 +39,7 @@ export enum ActionType {
   AddShadow = 'AddShadow',
   RemoveShadow = 'RemoveShadow',
   UpdatePlayArea = 'UpdatePlayArea',
+  EditPreset = 'EditPreset',
 }
 
 type Action =
@@ -44,7 +47,8 @@ type Action =
   | { type: ActionType.RemoveShadow; payload: { id: number } }
   | { type: ActionType.UpdateElement; payload: { key: string; value: string | boolean } }
   | { type: ActionType.UpdatePlayArea; payload: { key: string; value: string | boolean } }
-  | { type: ActionType.UpdateShadow; payload: { id: number; key: string; value: string | boolean } };
+  | { type: ActionType.UpdateShadow; payload: { id: number; key: string; value: string | boolean } }
+  | { type: ActionType.EditPreset; payload: Array<Shadow> };
 
 export const StoreContext = React.createContext<Context>({} as any);
 
@@ -62,7 +66,7 @@ const StoreProvider = ({ children }) => {
         // This is to prevent users from breaking the playarea constraints
         if (key === 'height') {
           if (Number(value) > window.innerHeight) {
-            value = String(window.innerHeight - 100);
+            value = String(window.innerHeight - 200);
           }
         }
 
@@ -139,6 +143,13 @@ const StoreProvider = ({ children }) => {
         return {
           ...state,
           shadows: state.shadows.filter(({ id }) => id !== action.payload.id),
+        };
+      }
+
+      case ActionType.EditPreset: {
+        return {
+          ...state,
+          shadows: action.payload,
         };
       }
 

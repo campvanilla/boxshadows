@@ -2,6 +2,7 @@ import { Shadow } from '@common/types';
 
 interface Preset {
   shadows: Array<Shadow>;
+  background?: string;
 }
 
 interface Section {
@@ -15,6 +16,7 @@ interface PresetData {
 
 const MaterializeCSS = [
   {
+    background: '#fff',
     shadows: [
       {
         id: 1,
@@ -46,6 +48,7 @@ const MaterializeCSS = [
     ],
   },
   {
+    background: '#fff',
     shadows: [
       {
         id: 1,
@@ -77,6 +80,7 @@ const MaterializeCSS = [
     ],
   },
   {
+    background: '#fff',
     shadows: [
       {
         id: 1,
@@ -108,6 +112,7 @@ const MaterializeCSS = [
     ],
   },
   {
+    background: '#fff',
     shadows: [
       {
         id: 1,
@@ -139,6 +144,7 @@ const MaterializeCSS = [
     ],
   },
   {
+    background: '#fff',
     shadows: [
       {
         id: 1,
@@ -245,6 +251,7 @@ const CodeSandbox = [
 
 const TailwindCSS = [
   {
+    background: 'rgb(247,250,252)',
     shadows: [
       {
         id: 1,
@@ -258,6 +265,7 @@ const TailwindCSS = [
     ],
   },
   {
+    background: 'rgb(247,250,252)',
     shadows: [
       {
         id: 1,
@@ -271,6 +279,7 @@ const TailwindCSS = [
     ],
   },
   {
+    background: 'rgb(247,250,252)',
     shadows: [
       {
         id: 1,
@@ -293,6 +302,7 @@ const TailwindCSS = [
     ],
   },
   {
+    background: 'rgb(247,250,252)',
     shadows: [
       {
         id: 1,
@@ -315,6 +325,7 @@ const TailwindCSS = [
     ],
   },
   {
+    background: 'rgb(247,250,252)',
     shadows: [
       {
         id: 1,
@@ -337,6 +348,7 @@ const TailwindCSS = [
     ],
   },
   {
+    background: 'rgb(247,250,252)',
     shadows: [
       {
         id: 1,
@@ -359,6 +371,7 @@ const TailwindCSS = [
     ],
   },
   {
+    background: 'rgb(247,250,252)',
     shadows: [
       {
         id: 1,
@@ -372,6 +385,7 @@ const TailwindCSS = [
     ],
   },
   {
+    background: 'rgb(247,250,252)',
     shadows: [
       {
         id: 1,
@@ -385,6 +399,7 @@ const TailwindCSS = [
     ],
   },
   {
+    background: 'rgb(247,250,252)',
     shadows: [
       {
         id: 1,
