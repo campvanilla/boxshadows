@@ -16,13 +16,19 @@ export const Theme = {
   },
   zIndices: {
     tabsNavigation: 5,
-  }
+  },
+  breakpoints: {
+    medium: '40em',
+    large: '52em',
+    xlarge: '64em'
+  },
 };
 
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: typeof Theme.colors;
     zIndices: typeof Theme.zIndices;
+    breakpoints: typeof Theme.breakpoints;
   }
 }
 

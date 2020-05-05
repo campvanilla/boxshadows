@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import StoreProvider from '@contexts/Store';
 import Editor from '@src/views/Editor';
 import Presets from '@src/views/Presets';
+import { Editor as EditorAlt } from '@src/views/EditorAlt';
 
 // styling
 import GlobalStyles from '@styles/globalStyles';
@@ -22,6 +23,7 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={Editor} />
             <Route exact path='/presets' component={Presets} />
+            <Route exact path='/edit' component={EditorAlt} />
           </Switch>
         </Router>
       </StoreProvider>
