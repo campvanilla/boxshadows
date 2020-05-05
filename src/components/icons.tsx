@@ -67,7 +67,7 @@ export const TrashIcon = ({ onClick }: { onClick: React.MouseEventHandler<SVGSVG
   );
 };
 
-export const Edit = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement>}) => {
+export const Edit = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement> }) => {
   return (
     <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg' onClick={onClick}>
       <path
@@ -84,11 +84,11 @@ export const Edit = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElem
       />
     </svg>
   );
-}
+};
 
-export const Copy = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement>}) => {
+export const Copy = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement> }) => {
   return (
-    <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg' onClick={onClick}>
+    <svg viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg' onClick={onClick}>
       <path
         d='M15 6.75H8.25C7.42157 6.75 6.75 7.42157 6.75 8.25V15C6.75 15.8284 7.42157 16.5 8.25 16.5H15C15.8284 16.5 16.5 15.8284 16.5 15V8.25C16.5 7.42157 15.8284 6.75 15 6.75Z'
         stroke='#BFC9D9'
@@ -103,16 +103,47 @@ export const Copy = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElem
       />
     </svg>
   );
-}
+};
 
-export const Share = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement>}) => {
+export const Share = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement> }) => {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}>
-      <path d="M13.5 6C14.7426 6 15.75 4.99264 15.75 3.75C15.75 2.50736 14.7426 1.5 13.5 1.5C12.2574 1.5 11.25 2.50736 11.25 3.75C11.25 4.99264 12.2574 6 13.5 6Z" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M4.5 11.25C5.74264 11.25 6.75 10.2426 6.75 9C6.75 7.75736 5.74264 6.75 4.5 6.75C3.25736 6.75 2.25 7.75736 2.25 9C2.25 10.2426 3.25736 11.25 4.5 11.25Z" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M13.5 16.5C14.7426 16.5 15.75 15.4926 15.75 14.25C15.75 13.0074 14.7426 12 13.5 12C12.2574 12 11.25 13.0074 11.25 14.25C11.25 15.4926 12.2574 16.5 13.5 16.5Z" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M6.44263 10.1326L11.5651 13.1176" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M11.5576 4.88257L6.44263 7.86757" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg' onClick={onClick}>
+      <path
+        d='M13.5 6C14.7426 6 15.75 4.99264 15.75 3.75C15.75 2.50736 14.7426 1.5 13.5 1.5C12.2574 1.5 11.25 2.50736 11.25 3.75C11.25 4.99264 12.2574 6 13.5 6Z'
+        stroke='#BFC9D9'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M4.5 11.25C5.74264 11.25 6.75 10.2426 6.75 9C6.75 7.75736 5.74264 6.75 4.5 6.75C3.25736 6.75 2.25 7.75736 2.25 9C2.25 10.2426 3.25736 11.25 4.5 11.25Z'
+        stroke='#BFC9D9'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M13.5 16.5C14.7426 16.5 15.75 15.4926 15.75 14.25C15.75 13.0074 14.7426 12 13.5 12C12.2574 12 11.25 13.0074 11.25 14.25C11.25 15.4926 12.2574 16.5 13.5 16.5Z'
+        stroke='#BFC9D9'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path d='M6.44263 10.1326L11.5651 13.1176' stroke='#BFC9D9' strokeLinecap='round' strokeLinejoin='round' />
+      <path d='M11.5576 4.88257L6.44263 7.86757' stroke='#BFC9D9' strokeLinecap='round' strokeLinejoin='round' />
     </svg>
   );
-}
+};
+
+export const Slider = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement> }) => {
+  return (
+    <svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' onClick={onClick}>
+      <path d='M4 21V14' stroke='#BFC9D9' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+      <path d='M4 10V3' stroke='#BFC9D9' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+      <path d='M12 21V12' stroke='#BFC9D9' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+      <path d='M12 8V3' stroke='#BFC9D9' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+      <path d='M20 21V16' stroke='#BFC9D9' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+      <path d='M20 12V3' stroke='#BFC9D9' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+      <path d='M1 14H7' stroke='#BFC9D9' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+      <path d='M9 8H15' stroke='#BFC9D9' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+      <path d='M17 16H23' stroke='#BFC9D9' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+    </svg>
+  );
+};

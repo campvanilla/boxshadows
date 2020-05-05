@@ -32,6 +32,7 @@ export const Aside = styled.aside`
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+  z-index: 6;
 
   .control-section {
     border-bottom: 1px solid ${props => props.theme.colors.heather};
