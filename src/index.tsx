@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider, keyframes} from 'styled-components';
 
 import StoreProvider from '@contexts/Store';
-
-// utils
-import { removeClass } from '@utils/dom';
 
 // styling
 import GlobalStyles from '@styles/globalStyles';
@@ -15,20 +12,36 @@ import { Theme } from '@styles/theme';
 import PlayArea from '@components/PlayArea';
 import Controls from '@components/Controls';
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
+
+const AppWrapper = styled.div`
+  animation: ${fadeIn} 0.75s;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+`;
+
 const App = () => {
-  useEffect(() => {
-    removeClass(document.body, 'loading');
-  }, []);
   return (
-    <ThemeProvider
-      theme={Theme}
-    >
-      <GlobalStyles />
-      <StoreProvider>
-        <PlayArea />
-        <Controls/>
-      </StoreProvider>
-    </ThemeProvider>
+    <AppWrapper>
+      <ThemeProvider
+        theme={Theme}
+      >
+        <GlobalStyles />
+        <StoreProvider>
+          <PlayArea />
+          <Controls/>
+        </StoreProvider>
+      </ThemeProvider>
+    </AppWrapper>
   )
 };
 

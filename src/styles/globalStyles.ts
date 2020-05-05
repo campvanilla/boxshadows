@@ -12,13 +12,6 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-
-  #app {
-    display: flex;
   }
 `
 
