@@ -6,6 +6,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require('terser-webpack-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 // variables
 const PROD = process.env.NODE_ENV === 'production';
@@ -86,6 +87,7 @@ const config = {
       },
     }),
     ANALYZE_BUNDLES && new BundleAnalyzerPlugin(),
+    new CaseSensitivePathsPlugin(),
   ].filter(Boolean),
 
   devServer: {

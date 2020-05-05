@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { PresetsWrapper } from '@styles/common';
-import Presets from '@common/Presets';
+import Presets from '@common/presets';
 import Preset from '@components/Preset';
 
 import { Heading, Row } from './styles';
