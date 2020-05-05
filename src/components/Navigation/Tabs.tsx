@@ -13,6 +13,8 @@ const NavLink = styled(BaseNavLink).attrs({
   padding: 8px 14px;
   background-color: transparent;
   transition: background-color 0.4s cubic-bezier(.17,.67,.76,.77);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 
   &:hover {
     background-color: ${props => props.theme.colors.gallery};

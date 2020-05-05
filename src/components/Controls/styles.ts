@@ -26,6 +26,8 @@ export const ControlsWrapper = styled.section`
     margin: 0;
     margin-bottom: 24px;
     align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 
     span,
     svg {
