@@ -6,6 +6,7 @@ export const ControlPanel = styled.div`
   flex-direction: column;
   justify-contents: flex-start;
   overflow-y: auto;
+  width: 100%;
 `;
 
 export const Footer = styled.footer`
@@ -86,7 +87,6 @@ export const Aside = styled.aside`
 
     .title {
       flex-basis: 90px;
-      min-width: 90px;
       max-width: 90px;
       margin-top: 0;
       margin-bottom: 0;
@@ -96,6 +96,7 @@ export const Aside = styled.aside`
     .control {
       margin-right: 8px;
       margin-bottom: 4px;
+      max-width: 155px;
 
       &:last-child {
         margin-right: 0;

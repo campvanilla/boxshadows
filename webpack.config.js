@@ -10,6 +10,10 @@ const TerserPlugin = require('terser-webpack-plugin');
 // variables
 const PROD = process.env.NODE_ENV === 'production';
 const DEV = !PROD;
+const ANALYZE_BUNDLES = process.env.ANALYZE_BUNDLES === 'true';
+
+console.log('building boxshadows.com');
+console.table({ PROD, DEV, ANALYZE_BUNDLES });
 
 module.exports = {
   entry: {
@@ -61,11 +65,10 @@ module.exports = {
       __DEV__: JSON.stringify(!!DEV),
       __PROD__: JSON.stringify(!!PROD),
     }),
-    PROD &&
     new HTMLWebpackPlugin({
       template: './src/index.html',
     }),
-    process.env.ANALYZE_BUNDLES !== 'true' &&
+    !ANALYZE_BUNDLES &&
     new FaviconsWebpackPlugin({
       logo: './src/assets/favicon.svg',
       favicons: {
@@ -80,7 +83,7 @@ module.exports = {
         },
       },
     }),
-    process.env.ANALYZE_BUNDLES === 'true' && new BundleAnalyzerPlugin(),
+    ANALYZE_BUNDLES && new BundleAnalyzerPlugin(),
   ].filter(Boolean),
 
   optimization: {
@@ -96,6 +99,7 @@ module.exports = {
     minimize: PROD,
     minimizer: [new TerserPlugin()],
   },
+
   devServer: {
     compress: true,
     port: 7335,
