@@ -37,6 +37,8 @@ module.exports = {
       '@contexts': path.resolve('./src/contexts'),
       '@assets': path.resolve('./src/assets'),
       '@utils': path.resolve('./src/utils'),
+      '@common': path.resolve('./src/common'),
+      '@views ': path.resolve('./src/views'),
 
       "react": "preact/compat",
       "react-dom": "preact/compat",
@@ -104,5 +106,6 @@ module.exports = {
     compress: true,
     port: 7335,
     contentBase: './dist',
+    historyApiFallback: true,
   },
 };

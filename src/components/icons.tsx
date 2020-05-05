@@ -66,3 +66,53 @@ export const TrashIcon = ({ onClick }: { onClick: React.MouseEventHandler<SVGSVG
     </svg>
   );
 };
+
+export const Edit = ({ onClick }: { onClick: React.MouseEventHandler<SVGSVGElement>}) => {
+  return (
+    <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg' onClick={onClick}>
+      <path
+        d='M8.25 3H3C2.60218 3 2.22064 3.15804 1.93934 3.43934C1.65804 3.72064 1.5 4.10218 1.5 4.5V15C1.5 15.3978 1.65804 15.7794 1.93934 16.0607C2.22064 16.342 2.60218 16.5 3 16.5H13.5C13.8978 16.5 14.2794 16.342 14.5607 16.0607C14.842 15.7794 15 15.3978 15 15V9.75'
+        stroke='#BFC9D9'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M13.875 1.87493C14.1734 1.57656 14.578 1.40894 15 1.40894C15.422 1.40894 15.8266 1.57656 16.125 1.87493C16.4234 2.17329 16.591 2.57797 16.591 2.99993C16.591 3.42188 16.4234 3.82656 16.125 4.12493L9 11.2499L6 11.9999L6.75 8.99993L13.875 1.87493Z'
+        stroke='#BFC9D9'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  );
+}
+
+export const Copy = ({ onClick }: { onClick: React.MouseEventHandler<SVGSVGElement>}) => {
+  return (
+    <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg' onClick={onClick}>
+      <path
+        d='M15 6.75H8.25C7.42157 6.75 6.75 7.42157 6.75 8.25V15C6.75 15.8284 7.42157 16.5 8.25 16.5H15C15.8284 16.5 16.5 15.8284 16.5 15V8.25C16.5 7.42157 15.8284 6.75 15 6.75Z'
+        stroke='#BFC9D9'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+      <path
+        d='M3.75 11.25H3C2.60218 11.25 2.22064 11.092 1.93934 10.8107C1.65804 10.5294 1.5 10.1478 1.5 9.75V3C1.5 2.60218 1.65804 2.22064 1.93934 1.93934C2.22064 1.65804 2.60218 1.5 3 1.5H9.75C10.1478 1.5 10.5294 1.65804 10.8107 1.93934C11.092 2.22064 11.25 2.60218 11.25 3V3.75'
+        stroke='#BFC9D9'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+      />
+    </svg>
+  );
+}
+
+export const Share = ({ onClick }: { onClick: React.MouseEventHandler<SVGSVGElement>}) => {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}>
+      <path d="M13.5 6C14.7426 6 15.75 4.99264 15.75 3.75C15.75 2.50736 14.7426 1.5 13.5 1.5C12.2574 1.5 11.25 2.50736 11.25 3.75C11.25 4.99264 12.2574 6 13.5 6Z" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M4.5 11.25C5.74264 11.25 6.75 10.2426 6.75 9C6.75 7.75736 5.74264 6.75 4.5 6.75C3.25736 6.75 2.25 7.75736 2.25 9C2.25 10.2426 3.25736 11.25 4.5 11.25Z" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M13.5 16.5C14.7426 16.5 15.75 15.4926 15.75 14.25C15.75 13.0074 14.7426 12 13.5 12C12.2574 12 11.25 13.0074 11.25 14.25C11.25 15.4926 12.2574 16.5 13.5 16.5Z" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M6.44263 10.1326L11.5651 13.1176" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M11.5576 4.88257L6.44263 7.86757" stroke='#BFC9D9' strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
