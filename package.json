@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "create and tweak CSS box-shadows ✨",
   "scripts": {
-    "start:dev": "webpack-dev-server --open",
+    "start:dev": "webpack-dev-server",
     "start": "npm run start:dev",
     "build": "NODE_ENV=production webpack",
     "build:analyze": "ANALYZE_BUNDLES=true NODE_ENV=production webpack",
