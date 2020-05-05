@@ -1,21 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <meta name="google-site-verification" content="7Sax_lDoa6moZA9trVino0wuKyZkmJIInvjWkxAB5vU" />
-  <title>boxShadows | create and tweak CSS box-shadows</title>
-</head>
-<body>
-  <div id="app"></div>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97738324-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-97738324-2');
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+    <meta name="google-site-verification" content="7Sax_lDoa6moZA9trVino0wuKyZkmJIInvjWkxAB5vU" />
+    <title>boxShadows | create and tweak CSS box-shadows</title>
+    <style>
+      #app-shell-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        min-height: 200px;
+      }
+
+      #logo-stack {
+        width: 90vw;
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='app'>
+      <div id="app-shell-container">
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" id="logo-stack">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M268.611 218.407L506.14 163.137L360.482 361.974L133.523 410.663L268.611 218.407Z"
+            fill="#03DFD8"
+            opacity="0.15"
+            id="stack-level-2"
+          />
+          <path
+            opacity="0.5"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M209.676 195.223L447.205 139.953L301.547 338.79L74.5875 387.479L209.676 195.223Z"
+            fill="#03DFD8"
+            id="stack-level-1"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M138.897 173.144L376.425 117.874L230.767 316.711L3.80804 365.401L138.897 173.144Z"
+            fill="#03DFD8"
+            id="stack-level-0"
+          />
+
+          <animate
+            xlink:href="#stack-level-0"
+            attributeType="CSS"
+            attributeName="opacity"
+            from="1"
+            to="1"
+            dur="2s"
+            values="1; 0.75; 0.5; 0.75; 1"
+            keyTimes="0; 0.25; 0.5; 0.75; 1"
+            repeatCount="indefinite"
+          />
+          <animate
+            xlink:href="#stack-level-1"
+            attributeType="CSS"
+            attributeName="opacity"
+            from="0.5"
+            to="0.5"
+            dur="2s"
+            values="0.5; 0.75; 0.95; 0.75; 0.5"
+            keyTimes="0; 0.25; 0.5; 0.75; 1"
+            repeatCount="indefinite"
+          />
+          <animate
+            xlink:href="#stack-level-2"
+            attributeType="CSS"
+            attributeName="opacity"
+            from="0.15"
+            to="0.15"
+            dur="2s"
+            values="0.15; 0.5; 0.75; 0.5; 0.15"
+            keyTimes="0; 0.25; 0.5; 0.75; 1"
+            repeatCount="indefinite"
+          />
+        </svg>
+      </div>
+    </div>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97738324-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-97738324-2');
+    </script>
+  </body>
 </html>
