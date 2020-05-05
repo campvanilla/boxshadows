@@ -55,10 +55,6 @@ export const ControlsWrapper = styled.section`
     }
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
-    width: 500;
-  }
-
   .control-row {
     display: flex;
     align-items: center;
