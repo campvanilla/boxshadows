@@ -179,6 +179,7 @@ const MaterializeCSS = [
 
 const Stripe = [
   {
+    background: '#F6F9FC',
     shadows: [
       {
         id: 1,
@@ -207,9 +208,10 @@ const Stripe = [
         spread: '-6',
         color: 'rgba(0,0,0,0.025)',
       },
-    ]
+    ],
   },
   {
+    background: '#F6F9FC',
     shadows: [
       {
         id: 1,
@@ -229,9 +231,9 @@ const Stripe = [
         spread: '0',
         color: 'rgba(0,0,0,0.08)',
       },
-    ]
-  }
-]
+    ],
+  },
+];
 
 const CodeSandbox = [
   {
@@ -414,6 +416,23 @@ const TailwindCSS = [
   },
 ];
 
+const Trello = [
+  {
+    background: 'rgb(247,250,252)',
+    shadows: [
+      {
+        id: 1,
+        offsetX: '0',
+        offsetY: '1',
+        blur: '0',
+        spread: '0',
+        color: 'rgba(9,30,66,.25)',
+        inset: false,
+      },
+    ],
+  },
+];
+
 const Presets: PresetData = {
   sections: [
     {
@@ -431,6 +450,10 @@ const Presets: PresetData = {
     {
       title: 'CodeSandbox',
       presets: [...CodeSandbox],
+    },
+    {
+      title: 'Trello',
+      presets: [...Trello],
     },
   ],
 };

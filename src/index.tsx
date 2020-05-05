@@ -7,6 +7,7 @@ import StoreProvider from '@contexts/Store';
 import SnackbarProvider from '@contexts/Snackbar';
 import Navigation from '@components/Navigation';
 import Snackbar from '@components/Snackbar';
+import About from '@components/About';
 
 // routes or views
 import Presets from '@src/views/Presets';
@@ -30,6 +31,7 @@ const App = () => {
               <Route exact path='/presets' component={Presets} />
             </Switch>
           </Router>
+          <About />
         </StoreProvider>
       </SnackbarProvider>
     </ThemeProvider>

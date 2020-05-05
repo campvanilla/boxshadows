@@ -24,8 +24,35 @@ export const Row = styled.ul`
   margin: 0;
   padding: 0;
 
+  justify-content: space-evenly;
+
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    justify-content: initial;
+  }
+
   .item {
-    margin: 0 48px;
-    margin-bottom: 90px;
+    margin: 0 40px;
+    margin-bottom: 40px;
+  }
+`;
+
+export const PageHeader = styled.header`
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 45px;
+  background-color: ${props => props.theme.colors.white};
+  position: fixed;
+  width: 100%;
+  z-index: 4;
+
+  .logo {
+    height: 30px;
+    width: auto;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    height: 85px;
   }
 `;

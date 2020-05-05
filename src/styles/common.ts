@@ -11,7 +11,7 @@ const fadeIn = keyframes`
 
 export const AppWrapper = styled.div`
   animation: ${fadeIn} 0.75s;
-  height: 100vh;
+  height: ${`${window.innerHeight}px`};
   width: 100vw;
   overflow: hidden;
 `;
@@ -25,6 +25,4 @@ export const PresetsWrapper = styled(AppWrapper)`
   padding-top: 100px;
   height: 100%;
   min-height: 100vh;
-  overflow-
-  background-color: rgba(247,250,252);
 `;

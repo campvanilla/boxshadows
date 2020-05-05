@@ -5,6 +5,7 @@ interface PlayAreaContainerProps {
 }
 
 export const PlayAreaContainer = Styled.main<PlayAreaContainerProps>`
+  position: relative;
   flex-grow: 1;
   height: 100%;
   overflow: auto;

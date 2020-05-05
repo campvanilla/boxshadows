@@ -50,10 +50,10 @@ const Preset: React.FC<PresetProps> = ({ shadows, background }) => {
           <Copy />
           Copy
         </li>
-        <li className='action'>
+        {/* <li className='action'>
           <Share />
           Share
-        </li>
+        </li> */}
       </ul>
     </PresetContainer>
   )

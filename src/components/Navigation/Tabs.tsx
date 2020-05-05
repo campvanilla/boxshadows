@@ -32,6 +32,7 @@ const TabsContainer = styled.nav`
   top: 0;
   left: 0;
   padding: 10px;
+  z-index: 5;
 
   @media (min-width: ${props => props.theme.breakpoints.medium}) {
     padding: 25px;
