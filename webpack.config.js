@@ -15,7 +15,7 @@ const ANALYZE_BUNDLES = process.env.ANALYZE_BUNDLES === 'true';
 console.log('building boxshadows.com');
 console.table({ PROD, DEV, ANALYZE_BUNDLES });
 
-module.exports = {
+const config = {
   entry: {
     app: './src/index.tsx',
   },
@@ -88,7 +88,16 @@ module.exports = {
     ANALYZE_BUNDLES && new BundleAnalyzerPlugin(),
   ].filter(Boolean),
 
-  optimization: {
+  devServer: {
+    compress: true,
+    port: 7335,
+    contentBase: './dist',
+    historyApiFallback: true,
+  },
+};
+
+if (PROD) {
+  config.optimization = {
     splitChunks: {
       cacheGroups: {
         vendors: {
@@ -100,12 +109,7 @@ module.exports = {
     },
     minimize: PROD,
     minimizer: [new TerserPlugin()],
-  },
+  };
+}
 
-  devServer: {
-    compress: true,
-    port: 7335,
-    contentBase: './dist',
-    historyApiFallback: true,
-  },
-};
+module.exports = config;
