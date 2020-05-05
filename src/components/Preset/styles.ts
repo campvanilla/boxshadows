@@ -12,8 +12,8 @@ export const PresetContainer = styled.article<PresetContainerProps>`
   }
 
   .base {
-    height: 130px;
-    width: 130px;
+    height: 170px;
+    width: 300px;
     border-radius: 4px;
     border: 1px solid ${props => props.theme.colors.heather};
     display: flex;

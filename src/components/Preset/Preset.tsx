@@ -1,10 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Edit, Share, Copy } from '@components/icons';
 import { Shadow } from '@common/types';
 import { copyToClipboard } from '@utils/clipboard';
 import { StoreContext, ActionType } from '@contexts/Store';
+import { SnackbarContext } from '@contexts/Snackbar';
 
 import { PresetContainer } from './styles';
 
@@ -14,8 +15,8 @@ interface PresetProps {
 }
 
 const Preset: React.FC<PresetProps> = ({ shadows, background }) => {
-  const [loading, setLoading] = useState(false);
   const { updateState } = useContext(StoreContext);
+  const { updateState: updateSnackbarState } = useContext(SnackbarContext);
   const history = useHistory();
 
   const shadow = shadows.map(shadow => `${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blur}px ${shadow.spread}px ${shadow.color} ${shadow.inset ? 'inset' : ''}`).join(', ');
@@ -29,6 +30,12 @@ const Preset: React.FC<PresetProps> = ({ shadows, background }) => {
     history.push('/');
   }
 
+  const handleCopy = () => {
+    copyToClipboard(shadow);
+
+    updateSnackbarState(true, '🚀 Copied!');
+  }
+
   return (
     <PresetContainer shadow={shadow} backgroundColor={background || '#fff'}>
       <div className='base'>
@@ -39,9 +46,9 @@ const Preset: React.FC<PresetProps> = ({ shadows, background }) => {
           <Edit />
           Edit
         </li>
-        <li className='action' onClick={copyToClipboard.bind(null, shadow, setLoading)}>
+        <li className='action' onClick={handleCopy}>
           <Copy />
-          {loading ? 'Copied!' : 'Copy'}
+          Copy
         </li>
         <li className='action'>
           <Share />

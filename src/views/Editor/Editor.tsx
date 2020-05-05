@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 
 import { StoreContext } from '@contexts/Store';
+import { SnackbarContext } from '@contexts/Snackbar';
 
 // components
 import PlayArea from '@components/PlayArea';
@@ -18,9 +19,9 @@ import { Page, OutputArea, Aside, AsideHeader, AsideHeaderIcons, AsideContent } 
 
 export const Editor: React.FC = () => {
   const [drawerOpen, setDrawerState] = useState<boolean>(false);
-  const [loading, setLoading] = useState(false);
 
   const { state } = useContext(StoreContext);
+  const { state: snackBarState, updateState: updateSnackbar } = useContext(SnackbarContext);
 
   const shadow = state.shadows
     .map(
@@ -31,6 +32,11 @@ export const Editor: React.FC = () => {
     )
     .join(', ');
 
+  const handleCopy = () => {
+    copyToClipboard(shadow);
+    updateSnackbar(true, '🚀 Copied!');
+  }
+
   return (
     <Page>
       <OutputArea>
@@ -38,12 +44,12 @@ export const Editor: React.FC = () => {
       </OutputArea>
       <Aside open={drawerOpen}>
         <AsideHeader>
-          <Button className='copy-btn' disabled={loading} onClick={copyToClipboard.bind(null, shadow, setLoading)}>
-            {loading ? 'Copied!' : 'Copy to clipboard'}
+          <Button className='copy-btn' disabled={snackBarState.open} onClick={handleCopy}>
+            Copy to clipboard
           </Button>
           <img src={Logo} className='logo' />
           <AsideHeaderIcons>
-            <Copy />
+            <Copy onClick={handleCopy} />
             <Slider onClick={() => setDrawerState((open) => !open)} />
           </AsideHeaderIcons>
         </AsideHeader>

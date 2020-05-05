@@ -13,6 +13,7 @@ export const Theme = {
     mischka: '#BFC9D9',
     whiteish: '#FDFDFD',
     hoki: '#647ba0',
+    shark: '#1E2428',
   },
   zIndices: {
     tabsNavigation: 5,
