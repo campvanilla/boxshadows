@@ -9,7 +9,7 @@ export const PresetContainer = styled.article<PresetContainerProps>`
     height: 130px;
     width: 130px;
     border-radius: 4px;
-    background-color: ${(props) => props.theme.colors.brightTurquoise};
+    background-color: ${props => props.theme.colors.white};
     box-shadow: ${(props) => props.shadow};
   }
 

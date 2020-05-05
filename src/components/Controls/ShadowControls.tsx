@@ -29,12 +29,13 @@ const ShadowControls = () => {
         ? (e as React.ChangeEvent<HTMLInputElement>).target
         : (e as ColorChangeEvent);
 
+
     updateState({
       type: ActionType.UpdateShadow,
       payload: {
         id,
         key: name,
-        value: value || (e as React.ChangeEvent<HTMLInputElement>).target.checked,
+        value: value || !!(e as React.ChangeEvent<HTMLInputElement>).target.checked,
       },
     });
   }

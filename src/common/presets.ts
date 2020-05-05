@@ -227,21 +227,197 @@ const Stripe = [
   }
 ]
 
+const CodeSandbox = [
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '4',
+        blur: '4',
+        spread: '0',
+        color: 'rgba(0,0,0,0.24)',
+      },
+    ]
+  },
+]
+
+const TailwindCSS = [
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '0',
+        blur: '0',
+        spread: '1',
+        color: 'rgba(0,0,0,0.05)',
+      },
+    ],
+  },
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '1',
+        blur: '2',
+        spread: '0',
+        color: 'rgba(0,0,0,0.05)',
+      },
+    ],
+  },
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '1',
+        blur: '3',
+        spread: '0',
+        color: 'rgba(0,0,0,0.1)',
+      },
+      {
+        id: 2,
+        inset: false,
+        offsetX: '0',
+        offsetY: '1',
+        blur: '2',
+        spread: '0',
+        color: 'rgba(0,0,0,0.06)',
+      },
+    ],
+  },
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '4',
+        blur: '6',
+        spread: '-1',
+        color: 'rgba(0,0,0,0.1)',
+      },
+      {
+        id: 2,
+        inset: false,
+        offsetX: '0',
+        offsetY: '2',
+        blur: '4',
+        spread: '-1',
+        color: 'rgba(0,0,0,0.06)',
+      },
+    ],
+  },
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '10',
+        blur: '15',
+        spread: '-3',
+        color: 'rgba(0,0,0,0.1)',
+      },
+      {
+        id: 2,
+        inset: false,
+        offsetX: '0',
+        offsetY: '4',
+        blur: '6',
+        spread: '-2',
+        color: 'rgba(0,0,0,0.05)',
+      },
+    ],
+  },
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '20',
+        blur: '25',
+        spread: '-5',
+        color: 'rgba(0,0,0,0.1)',
+      },
+      {
+        id: 2,
+        inset: false,
+        offsetX: '0',
+        offsetY: '10',
+        blur: '10',
+        spread: '-5',
+        color: 'rgba(0,0,0,0.04)',
+      },
+    ],
+  },
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '25',
+        blur: '50',
+        spread: '-12',
+        color: 'rgba(0,0,0,0.25)',
+      },
+    ],
+  },
+  {
+    shadows: [
+      {
+        id: 1,
+        offsetX: '0',
+        offsetY: '2',
+        blur: '4',
+        spread: '0',
+        color: 'rgba(0,0,0,0.06)',
+        inset: true,
+      },
+    ],
+  },
+  {
+    shadows: [
+      {
+        id: 1,
+        offsetX: '0',
+        offsetY: '0',
+        blur: '0',
+        spread: '3',
+        color: 'rgba(66,153,225,0.5)',
+        inset: true,
+      },
+    ],
+  },
+];
+
 const Presets: PresetData = {
   sections: [
     {
       title: 'Materialize',
-      presets: [
-        ...MaterializeCSS,
-      ]
+      presets: [...MaterializeCSS],
+    },
+    {
+      title: 'TailWindCSS',
+      presets: [...TailwindCSS],
     },
     {
       title: 'Stripe',
-      presets: [
-        ...Stripe,
-      ]
-    }
-  ]
-}
+      presets: [...Stripe],
+    },
+    {
+      title: 'CodeSandbox',
+      presets: [...CodeSandbox],
+    },
+  ],
+};
 
 export default Presets;

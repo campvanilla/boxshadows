@@ -27,9 +27,5 @@ export const Row = styled.ul`
   .item {
     margin: 0 48px;
     margin-bottom: 90px;
-
-    &:first-child {
-      margin-left: 0;
-    }
   }
 `;

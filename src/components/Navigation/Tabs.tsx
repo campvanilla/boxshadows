@@ -26,11 +26,17 @@ const NavLink = styled(BaseNavLink).attrs({
 
 const TabsContainer = styled.nav`
   display: inline-flex;
-  padding: 25px;
   position: fixed;
+  width: 100%;
+  background-color: ${props => props.theme.colors.white};
+  z-index: ${props => props.theme.zIndices.tabsNavigation};
   top: 0;
   left: 0;
-  z-index: ${props => props.theme.zIndices.tabsNavigation};
+  padding: 10px;
+
+  @media (min-width: ${props => props.theme.breakpoints.medium}) {
+    padding: 25px;
+  }
 `;
 
 const tabs = [
@@ -44,6 +50,12 @@ const tabs = [
     name: 'Presets',
     key: 'presets',
     to: '/presets',
+    exact: true
+  },
+  {
+    name: 'Alt',
+    key: 'edit',
+    to: '/edit',
     exact: true
   },
 ];
