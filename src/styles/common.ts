@@ -18,7 +18,7 @@ export const AppWrapper = styled.div`
 
 export const EditorWrapper = styled(AppWrapper)`
   display: flex;
-`
+`;
 
 export const PresetsWrapper = styled(AppWrapper)`
   padding: 60px 40px;

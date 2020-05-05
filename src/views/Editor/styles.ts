@@ -4,6 +4,8 @@ export const OutputArea = styled.main`
   background-color: ${(props) => props.theme.colors.whiteish};
   flex-grow: 1;
   margin-top: 56px;
+  max-height: 100%;
+  overflow: scroll;
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     margin-top: 86px;
