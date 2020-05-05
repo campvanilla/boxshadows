@@ -49,12 +49,6 @@ const tabs = [
     to: '/presets',
     exact: true
   },
-  {
-    name: 'Alt',
-    key: 'edit',
-    to: '/edit',
-    exact: true
-  },
 ];
 
 export const Tabs: React.FC = () => {

@@ -18,7 +18,7 @@ export const Theme = {
     tabsNavigation: 5,
   },
   breakpoints: {
-    medium: '40em',
+    medium: '1000px',
     large: '52em',
     xlarge: '64em'
   },

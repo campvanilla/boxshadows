@@ -16,7 +16,7 @@ export const Page = styled.div`
   height: 100vh;
   min-height: 600px;
 
-  @media (min-width: ${(props) => props.theme.breakpoints.large}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     flex-direction: row;
   }
 `;
@@ -31,11 +31,11 @@ export const AsideHeaderIcons = styled.span`
   }
 
   svg path {
-    stroke: ${props => props.theme.colors.nepal};
+    stroke: ${(props) => props.theme.colors.nepal};
   }
 
   svg:hover path {
-    stroke: ${props => props.theme.colors.cloudBurst};
+    stroke: ${(props) => props.theme.colors.cloudBurst};
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
@@ -48,9 +48,21 @@ export const AsideHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 15px 20px;
+  border-top: 1px solid ${(props) => props.theme.colors.heather};
+  border-bottom: 1px solid ${(props) => props.theme.colors.heather};
 
   .logo {
     max-height: 35px;
+  }
+
+  .copy-btn {
+    display: none;
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    .copy-btn {
+      display: initial;
+    }
   }
 `;
 
@@ -62,20 +74,12 @@ export const Aside = styled.aside<{ open?: boolean }>`
   transition: height 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
   overflow-y: hidden;
 
-  ${AsideHeader} {
-    box-shadow: 0px 4px 4px rgba(175, 175, 175, 0.25);
-  }
-
-  ${props => props.open && `height: 50%;`}
+  ${(props) => props.open && `height: 50%;`}
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     flex-direction: column-reverse;
     width: 500px;
     height: 100%;
-
-    ${AsideHeader} {
-      box-shadow: 0px -4px 4px rgba(175,175,175,0.25);
-    }
   }
 `;
 

@@ -4,14 +4,15 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import StoreProvider from '@contexts/Store';
-import Editor from '@src/views/Editor';
+import Navigation from '@components/Navigation';
+
+// routes or views
 import Presets from '@src/views/Presets';
-import { Editor as EditorAlt } from '@src/views/EditorAlt';
+import Editor from '@src/views/Editor';
 
 // styling
 import GlobalStyles from '@styles/globalStyles';
 import { Theme } from '@styles/theme';
-import Tabs from '@components/Navigation';
 
 const App = () => {
   return (
@@ -19,11 +20,10 @@ const App = () => {
       <GlobalStyles />
       <StoreProvider>
         <Router>
-          <Tabs />
+          <Navigation />
           <Switch>
             <Route exact path='/' component={Editor} />
             <Route exact path='/presets' component={Presets} />
-            <Route exact path='/edit' component={EditorAlt} />
           </Switch>
         </Router>
       </StoreProvider>
