@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { PresetContainer } from './styles';
 import { Edit, Share, Copy } from '@components/icons';
 import { Shadow } from '@common/types';
+import { copyToClipboard } from '@utils/clipboard';
 
 interface PresetProps {
   shadows: Array<Shadow>;
 }
 
 const Preset: React.FC<PresetProps> = ({ shadows }) => {
+  const [loading, setLoading] = useState(false);
+
   const shadow = shadows.map(shadow => `${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blur}px ${shadow.spread}px ${shadow.color} ${shadow.inset ? 'inset' : ''}`).join(', ');
 
   return (
@@ -19,9 +22,9 @@ const Preset: React.FC<PresetProps> = ({ shadows }) => {
           <Edit />
           Edit
         </li>
-        <li className='action'>
+        <li className='action' onClick={copyToClipboard.bind(null, shadow, setLoading)}>
           <Copy />
-          Copy
+          {loading ? 'Done' : 'Copy'}
         </li>
         <li className='action'>
           <Share />

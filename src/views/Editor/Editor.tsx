@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { AppWrapper } from '@styles/common';
+import { EditorWrapper } from '@styles/common';
 
 import PlayArea from '@components/PlayArea';
 import Controls from '@components/Controls';
 
 const Editor = () => {
   return (
-    <AppWrapper>
+    <EditorWrapper>
       <PlayArea />
       <Controls/>
-    </AppWrapper>
+    </EditorWrapper>
   );
 };
 

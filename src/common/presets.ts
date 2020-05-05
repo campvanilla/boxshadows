@@ -17,6 +17,8 @@ const MaterializeCSS = [
   {
     shadows: [
       {
+        id: 1,
+        inset: false,
         offsetX: '0',
         offsetY: '2',
         blur: '2',
@@ -24,6 +26,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.14)',
       },
       {
+        id: 2,
+        inset: false,
         offsetX: '0',
         offsetY: '3',
         blur: '1',
@@ -31,6 +35,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.12)',
       },
       {
+        id: 3,
+        inset: false,
         offsetX: '0',
         offsetY: '1',
         blur: '5',
@@ -42,6 +48,8 @@ const MaterializeCSS = [
   {
     shadows: [
       {
+        id: 1,
+        inset: false,
         offsetX: '0',
         offsetY: '2',
         blur: '5',
@@ -49,6 +57,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.14)',
       },
       {
+        id: 2,
+        inset: false,
         offsetX: '0',
         offsetY: '1',
         blur: '10',
@@ -56,6 +66,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.12)',
       },
       {
+        id: 3,
+        inset: false,
         offsetX: '0',
         offsetY: '2',
         blur: '4',
@@ -67,6 +79,8 @@ const MaterializeCSS = [
   {
     shadows: [
       {
+        id: 1,
+        inset: false,
         offsetX: '0',
         offsetY: '8',
         blur: '17',
@@ -74,6 +88,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.14)',
       },
       {
+        id: 2,
+        inset: false,
         offsetX: '0',
         offsetY: '3',
         blur: '14',
@@ -81,6 +97,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.12)',
       },
       {
+        id: 3,
+        inset: false,
         offsetX: '0',
         offsetY: '5',
         blur: '5',
@@ -92,6 +110,8 @@ const MaterializeCSS = [
   {
     shadows: [
       {
+        id: 1,
+        inset: false,
         offsetX: '0',
         offsetY: '16',
         blur: '24',
@@ -99,6 +119,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.14)',
       },
       {
+        id: 2,
+        inset: false,
         offsetX: '0',
         offsetY: '6',
         blur: '30',
@@ -106,6 +128,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.12)',
       },
       {
+        id: 3,
+        inset: false,
         offsetX: '0',
         offsetY: '8',
         blur: '10',
@@ -117,6 +141,8 @@ const MaterializeCSS = [
   {
     shadows: [
       {
+        id: 1,
+        inset: false,
         offsetX: '0',
         offsetY: '24',
         blur: '38',
@@ -124,6 +150,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.14)',
       },
       {
+        id: 2,
+        inset: false,
         offsetX: '0',
         offsetY: '9',
         blur: '46',
@@ -131,6 +159,8 @@ const MaterializeCSS = [
         color: 'rgba(0,0,0,0.12)',
       },
       {
+        id: 3,
+        inset: false,
         offsetX: '0',
         offsetY: '11',
         blur: '15',
@@ -141,6 +171,62 @@ const MaterializeCSS = [
   },
 ];
 
+const Stripe = [
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '13',
+        blur: '27',
+        spread: '-5',
+        color: 'rgba(50,50,93,0.25)',
+      },
+      {
+        id: 2,
+        inset: false,
+        offsetX: '0',
+        offsetY: '8',
+        blur: '16',
+        spread: '-8',
+        color: 'rgba(0,0,0,0.3)',
+      },
+      {
+        id: 3,
+        inset: false,
+        offsetX: '0',
+        offsetY: '-6',
+        blur: '16',
+        spread: '-6',
+        color: 'rgba(0,0,0,0.025)',
+      },
+    ]
+  },
+  {
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '0',
+        offsetY: '4',
+        blur: '6',
+        spread: '0',
+        color: 'rgba(50,50,93,0.11)',
+      },
+      {
+        id: 2,
+        inset: false,
+        offsetX: '0',
+        offsetY: '1',
+        blur: '3',
+        spread: '0',
+        color: 'rgba(0,0,0,0.08)',
+      },
+    ]
+  }
+]
+
 const Presets: PresetData = {
   sections: [
     {
@@ -149,6 +235,12 @@ const Presets: PresetData = {
         ...MaterializeCSS,
       ]
     },
+    {
+      title: 'Stripe',
+      presets: [
+        ...Stripe,
+      ]
+    }
   ]
 }
 

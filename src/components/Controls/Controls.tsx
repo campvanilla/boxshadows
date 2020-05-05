@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 
 import { StoreContext } from '@contexts/Store';
 import Button from '@components/Button';
+import { copyToClipboard } from '@utils/clipboard';
 
 import { Aside, ControlPanel, Footer } from './styles';
 
@@ -17,21 +18,6 @@ const Controls = () => {
 
   const shadow = state.shadows.map(shadow => `${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blur}px ${shadow.spread}px ${shadow.color} ${shadow.inset ? 'inset' : ''}`).join(', ');
 
-  const copyToClipboard = () => {
-      const temporaryInput = document.createElement('input');
-      document.body.appendChild(temporaryInput);
-      temporaryInput.value = shadow;
-      temporaryInput.select();
-      document.execCommand('copy', false);
-      temporaryInput.remove();
-
-      setLoading(true);
-
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000);
-  }
-
   return (
     <Aside>
       <ControlPanel>
@@ -40,7 +26,7 @@ const Controls = () => {
         <ShadowControls />
       </ControlPanel>
       <Footer>
-        <Button disabled={loading} onClick={copyToClipboard}>{loading ? 'Copied!' : 'Copy to clipboard'}</Button>
+        <Button disabled={loading} onClick={copyToClipboard.bind(null, shadow, setLoading)}>{loading ? 'Copied!' : 'Copy to clipboard'}</Button>
         <a href='/' title='boxshadows.com'>
           <img src={Logo} width='200' />
         </a>

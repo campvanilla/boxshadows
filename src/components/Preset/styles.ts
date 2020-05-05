@@ -25,7 +25,11 @@ export const PresetContainer = styled.article<PresetContainerProps>`
   }
 
   .action {
-    color: ${(props) => props.theme.colors.heather};
+    color: ${(props) => props.theme.colors.hoki};
+    stroke: ${(props) => props.theme.colors.hoki};
+    path {
+      stroke: ${(props) => props.theme.colors.hoki};
+    }
     transition: color 0.15s ease-out;
     font-size: 12px;
     cursor: pointer;
