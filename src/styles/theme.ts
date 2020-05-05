@@ -13,12 +13,16 @@ export const Theme = {
     mischka: '#BFC9D9',
     whiteish: '#FDFDFD',
     hoki: '#647ba0',
+  },
+  zIndices: {
+    tabsNavigation: 5,
   }
 };
 
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: typeof Theme.colors;
+    zIndices: typeof Theme.zIndices;
   }
 }
 
