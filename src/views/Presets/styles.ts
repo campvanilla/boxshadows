@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const PresetsWrapper = styled.section`
+  padding: 60px 40px;
+  padding-top: 0;
+  height: 100%;
+  max-height: 100%;
+`;
+
+
 export const Heading = styled.h3`
   font-size: 16px;
   margin: 0;

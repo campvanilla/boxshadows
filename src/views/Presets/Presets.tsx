@@ -1,20 +1,19 @@
 import React from 'react';
 
-import { PresetsWrapper } from '@styles/common';
-import Presets from '@common/presets';
+import PRESETS from '@common/presets';
 import Preset from '@components/Preset';
-import Logo from '@assets/logo-light-medium-400x70.png';
 
-import { PageHeader, Heading, Row } from './styles';
+import { Heading, Row, PresetsWrapper } from './styles';
+import { FullHeightPage, ContentArea, Aside, AsideMobileIcons } from '@src/components/Page';
+import { List } from '@components/icons';
+
 
 const PresetGrid = () => {
   return (
-    <>
-      <PageHeader>
-        <img src={Logo} className='logo' alt='Logo' />
-      </PageHeader>
-      <PresetsWrapper>
-        {Presets.sections.map((section) => (
+    <FullHeightPage>
+      <ContentArea>
+        <PresetsWrapper>
+        {PRESETS.sections.map((section) => (
           <>
             <Heading>{section.title}</Heading>
             <Row>
@@ -26,8 +25,20 @@ const PresetGrid = () => {
             </Row>
           </>
         ))}
-      </PresetsWrapper>
-    </>
+        </PresetsWrapper>
+      </ContentArea>
+      <Aside headerAfter={({ toggleAside }) => (
+        <AsideMobileIcons>
+          <List onClick={toggleAside} />
+        </AsideMobileIcons>
+      )}>
+        <ul>
+        {
+          PRESETS.sections.map(section => <li key={section.title}>{section.title}</li>)
+        }
+        </ul>
+      </Aside>
+    </FullHeightPage>
   );
 };
 

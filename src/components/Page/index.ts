@@ -1,2 +1,2 @@
-export { FullHeightPage, ContentArea } from './styles';
-export { Aside } from './Aside' ;
+export { FullHeightPage, ContentArea, AsideMobileIcons } from './styles';
+export { Aside } from './Aside';
