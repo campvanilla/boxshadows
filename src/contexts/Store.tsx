@@ -48,7 +48,7 @@ type Action =
   | { type: ActionType.UpdateElement; payload: { key: string; value: string | boolean } }
   | { type: ActionType.UpdatePlayArea; payload: { key: string; value: string | boolean } }
   | { type: ActionType.UpdateShadow; payload: { id: number; key: string; value: string | boolean } }
-  | { type: ActionType.EditPreset; payload: { pageBackground?: string; elementBackground?: string; shadows: Array<Shadow> } };
+  | { type: ActionType.EditPreset; payload: { pageBackground?: string; elementBackground?: string; borderColor?: string; borderThickness?: string; shadows: Array<Shadow> } };
 
 export const StoreContext = React.createContext<Context>({} as any);
 
@@ -156,7 +156,10 @@ const StoreProvider = ({ children }) => {
           element: {
             height: '130',
             width: '130',
-            backgroundColor: action.payload.elementBackground || '#FFFFFF'
+            backgroundColor: action.payload.elementBackground || '#FFFFFF',
+            borderColor: action.payload.borderColor || '#FFFFFF',
+            borderRadius: '0',
+            borderThickness: action.payload.borderThickness || '0',
           },
           shadows: action.payload.shadows,
         };

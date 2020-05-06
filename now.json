@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "src": "/",
+      "dest": "dist/index.html"
+    },
+    {
+      "src": "/presets",
+      "dest": "dist/index.html"
+    }
+  ]
+}

@@ -4,6 +4,8 @@ interface PresetContainerProps {
   shadow: string;
   backgroundColor?: string;
   elementColor?: string;
+  borderThickness?: string;
+  borderColor?: string;
 }
 
 export const PresetContainer = styled.article<PresetContainerProps>`
@@ -29,6 +31,7 @@ export const PresetContainer = styled.article<PresetContainerProps>`
     height: 90px;
     width: 90px;
     border-radius: 4px;
+    ${props => props.borderColor && props.borderThickness && `border: ${props.borderThickness} solid ${props.borderColor};`}
   }
 
   display: flex;

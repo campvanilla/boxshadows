@@ -4,6 +4,8 @@ interface Preset {
   shadows: Array<Shadow>;
   background?: string;
   element?: string;
+  borderColor?: string;
+  borderThickness?: string;
 }
 
 interface Section {
@@ -479,6 +481,35 @@ const Windows95 = [
   },
 ];
 
+const Minecraft = [
+  {
+    element: '#686868',
+    background: '#7c7c7c',
+    borderThickness: '2',
+    borderColor: '#000000',
+    shadows: [
+      {
+        id: 1,
+        offsetX: '-2',
+        offsetY: '-4',
+        blur: '0',
+        spread: '0',
+        color: '#0006',
+        inset: true,
+      },
+      {
+        id: 2,
+        offsetX: '2',
+        offsetY: '2',
+        blur: '0',
+        spread: '0',
+        color: '#FFF7',
+        inset: true,
+      },
+    ],
+  },
+];
+
 const Skeuomorphism = [
   {
     element: '#E4EDF7',
@@ -546,6 +577,11 @@ const Presets: PresetData = {
       title: '3D',
       presets: [...ThreeD],
       id: 'preset-section--3d',
+    },
+    {
+      title: 'Minecraft',
+      presets: [...Minecraft],
+      id: 'preset-section--minecraft',
     },
     {
       title: 'Skeuomorphism',
