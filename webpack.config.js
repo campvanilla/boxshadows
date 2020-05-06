@@ -92,6 +92,7 @@ const config = {
 
   devServer: {
     compress: true,
+    host: '0.0.0.0',
     port: 7335,
     contentBase: './dist',
     historyApiFallback: true,
