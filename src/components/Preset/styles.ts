@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 interface PresetContainerProps {
   shadow: string;
-  backgroundColor: string;
+  backgroundColor?: string;
+  elementColor?: string;
 }
 
 export const PresetContainer = styled.article<PresetContainerProps>`
@@ -19,11 +20,11 @@ export const PresetContainer = styled.article<PresetContainerProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${props => props.backgroundColor};
+    background-color: ${props => props.backgroundColor || props.theme.colors.white};
   }
 
   .shadow-preview {
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${props => props.elementColor || props.theme.colors.white};
     box-shadow: ${(props) => props.shadow};
     height: 90px;
     width: 90px;

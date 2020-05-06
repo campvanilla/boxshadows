@@ -20,7 +20,7 @@ const PresetGrid = () => {
             <Row>
               {section.presets.map((preset, index) => (
                 <li key={index} className='item'>
-                  <Preset shadows={preset.shadows} background={preset.background} />
+                  <Preset shadows={preset.shadows} background={preset.background} element={preset.element} />
                 </li>
               ))}
             </Row>

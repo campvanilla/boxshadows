@@ -3,6 +3,7 @@ import { Shadow } from '@common/types';
 interface Preset {
   shadows: Array<Shadow>;
   background?: string;
+  element?: string;
 }
 
 interface Section {
@@ -433,6 +434,24 @@ const Trello = [
   },
 ];
 
+const ThreeD = [
+  {
+    element: '#e74c3c',
+    background: 'rgb(247,250,252)',
+    shadows: [
+      {
+        id: 1,
+        offsetX: '0',
+        offsetY: '12',
+        blur: '0',
+        spread: '0',
+        color: '#c0392b',
+        inset: false,
+      },
+    ],
+  },
+];
+
 const Presets: PresetData = {
   sections: [
     {
@@ -442,6 +461,10 @@ const Presets: PresetData = {
     {
       title: 'TailWindCSS',
       presets: [...TailwindCSS],
+    },
+    {
+      title: '3D',
+      presets: [...ThreeD],
     },
     {
       title: 'Stripe',

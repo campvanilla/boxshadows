@@ -46,4 +46,16 @@ export const Slider = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGEl
   return (
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" stroke="#BFC9D9" /></svg>
   );
-};
+}
+
+export const Github = ({...rest}) => {
+  return (
+    <svg viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg" {...rest}><path d="M8 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0019 4.77 5.07 5.07 0 0018.91 1S17.73.65 15 2.48a13.38 13.38 0 00-7 0C5.27.65 4.09 1 4.09 1A5.07 5.07 0 004 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 008 18.13V22" stroke="#BFC9D9" strokeLinecap="round" strokeLinejoin="round" /></svg>
+  )
+}
+
+export const Twitter = ({...rest}) => {
+  return (
+    <svg viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...rest}><path d="M23 1a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 2s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.279-.028-.556-.08-.83A7.72 7.72 0 0023 1v0z" stroke="#BFC9D9" strokeLinecap="round" strokeLinejoin="round" /></svg>
+  )
+}

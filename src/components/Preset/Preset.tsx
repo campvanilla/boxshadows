@@ -12,9 +12,10 @@ import { PresetContainer } from './styles';
 interface PresetProps {
   shadows: Array<Shadow>;
   background?: string;
+  element?: string;
 }
 
-const Preset: React.FC<PresetProps> = ({ shadows, background }) => {
+const Preset: React.FC<PresetProps> = ({ shadows, background, element}) => {
   const { updateState } = useContext(StoreContext);
   const { updateState: updateSnackbarState } = useContext(SnackbarContext);
   const history = useHistory();
@@ -24,7 +25,11 @@ const Preset: React.FC<PresetProps> = ({ shadows, background }) => {
   const edit = () => {
     updateState({
       type: ActionType.EditPreset,
-      payload: shadows,
+      payload: {
+        pageBackground: background,
+        elementBackground: element,
+        shadows,
+      },
     });
 
     history.push('/');
@@ -37,7 +42,7 @@ const Preset: React.FC<PresetProps> = ({ shadows, background }) => {
   }
 
   return (
-    <PresetContainer shadow={shadow} backgroundColor={background || '#fff'}>
+    <PresetContainer shadow={shadow} backgroundColor={background} elementColor={element}>
       <div className='base'>
         <div className='shadow-preview' />
       </div>
