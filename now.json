@@ -1,12 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "dist/**", "use": "@now/static" }
-  ],
   "routes": [
-    {
-      "src": ".*",
-      "dest": "dist/index.html"
-    }
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
   ]
 }
