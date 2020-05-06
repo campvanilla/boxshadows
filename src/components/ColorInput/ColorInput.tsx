@@ -41,7 +41,6 @@ export const ColorInput: React.FC<ColorInputProps> = ({
   };
 
   const onPickerChange: ColorChangeHandler = (color) => {
-    console.log("onPickerChange:ColorChangeHandler -> color", color)
     const { hex } = color;
     if (isFunction(onChange)) {
       onChange({ name, value: hex });
@@ -67,7 +66,10 @@ export const ColorInput: React.FC<ColorInputProps> = ({
      />
     {isActive && <PickerContainer>
       <PickerOverlay onClick={deactivate} />
-        <SketchPicker color={value} onChange={onPickerChange} />
+        <SketchPicker
+          color={value}
+          onChange={onPickerChange}
+        />
     </PickerContainer>}
   </ColorInputWrapper>);
 }

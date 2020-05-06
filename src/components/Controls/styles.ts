@@ -6,6 +6,7 @@ export const ControlsWrapper = styled.section`
   justify-content: flex-start;
   overflow-y: auto;
   width: 100%;
+  height: 100%;
 
   .control-section {
     border-bottom: 1px solid ${(props) => props.theme.colors.heather};

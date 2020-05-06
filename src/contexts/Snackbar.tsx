@@ -46,7 +46,6 @@ const SnackBarProvider = ({ children }) => {
     },
   };
 
-  console.log('snackbar', state);
   return <SnackbarContext.Provider value={contextValue}>{children}</SnackbarContext.Provider>;
 };
 

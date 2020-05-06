@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const SnackbarContainer = styled.div<{ open: boolean }>`
+  z-index: 99;
   position: fixed;
   left: 50%;
   padding: 10px 24px;

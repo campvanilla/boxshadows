@@ -20,6 +20,7 @@ const TextInputWithRef: React.FC<TextInputProps> = React.forwardRef((props: Text
     append,
     className,
     value,
+    name,
     onChange,
     onFocus: propOnFocus,
     onBlur: propOnBlur,
@@ -41,18 +42,23 @@ const TextInputWithRef: React.FC<TextInputProps> = React.forwardRef((props: Text
   return (
     <FieldContainer className={className} fieldFocused={focused}>
       {renderChild(prepend)}
+      <label htmlFor={name}>
+        {name}
+      </label>
       <input
-          {...rest}
-          className='input-field'
-          ref={ref}
-          value={value}
-          onChange={onChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
-        />
+        {...rest}
+        id={name}
+        name={name}
+        className='input-field'
+        ref={ref}
+        value={value}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
       {renderChild(append)}
     </FieldContainer>
-  )
+  );
 });
 
 TextInputWithRef.displayName = 'TextInput';

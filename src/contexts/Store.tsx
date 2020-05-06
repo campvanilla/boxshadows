@@ -175,8 +175,6 @@ const StoreProvider = ({ children }) => {
     updateState: dispatch,
   };
 
-
-  console.log('store', state);
   return (
       <StoreContext.Provider value={contextValue}>
         {children}
