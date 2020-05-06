@@ -1,48 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { render } from 'react-dom';
-import styled, { ThemeProvider, keyframes} from 'styled-components';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
 import StoreProvider from '@contexts/Store';
+import SnackbarProvider from '@contexts/Snackbar';
+import Navigation from '@components/Navigation';
+import Snackbar from '@components/Snackbar';
+import Dialog from '@components/Dialog';
+import About from '@components/About';
+
+// routes or views
+import Presets from '@src/views/Presets';
+import Editor from '@src/views/Editor';
 
 // styling
 import GlobalStyles from '@styles/globalStyles';
 import { Theme } from '@styles/theme';
 
-// components
-import PlayArea from '@components/PlayArea';
-import Controls from '@components/Controls';
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`
-
-const AppWrapper = styled.div`
-  animation: ${fadeIn} 0.75s;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  display: flex;
-`;
+// utils
+import { setWindowCustomProperties } from '@utils/dom';
 
 const App = () => {
+  const [dialogOpenState, setDialogOpenState] = useState(false);
+
+  useEffect(() => {
+    return setWindowCustomProperties();
+  });
+
   return (
-    <AppWrapper>
-      <ThemeProvider
-        theme={Theme}
-      >
-        <GlobalStyles />
+    <ThemeProvider theme={Theme}>
+      <GlobalStyles />
+      <SnackbarProvider>
         <StoreProvider>
-          <PlayArea />
-          <Controls/>
+          <Router>
+            <Navigation
+              triggers={{
+                about: () => setDialogOpenState(true),
+              }}
+            />
+            <Switch>
+              <Route exact path='/' component={Editor} />
+              <Route exact path='/presets' component={Presets} />
+            </Switch>
+          </Router>
+          <Snackbar />
+          <Dialog open={dialogOpenState} onClose={() => setDialogOpenState(false)}>
+            <About />
+          </Dialog>
         </StoreProvider>
-      </ThemeProvider>
-    </AppWrapper>
-  )
+      </SnackbarProvider>
+    </ThemeProvider>
+  );
 };
 
 render(<App />, document.getElementById('app'));

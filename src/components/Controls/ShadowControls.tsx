@@ -24,19 +24,27 @@ const ShadowControls = () => {
   };
 
   const handleShadowUpdate = (id: number) => (e: React.ChangeEvent<HTMLInputElement> | ColorChangeEvent) => {
-    const { name, value } =
-      typeof (e as React.ChangeEvent<HTMLInputElement>).target !== 'undefined'
-        ? (e as React.ChangeEvent<HTMLInputElement>).target
-        : (e as ColorChangeEvent);
-
-    updateState({
-      type: ActionType.UpdateShadow,
-      payload: {
-        id,
-        key: name,
-        value: value || (e as React.ChangeEvent<HTMLInputElement>).target.checked,
-      },
-    });
+    if (typeof (e as React.ChangeEvent<HTMLInputElement>).target !== 'undefined') {
+      const { name, value, checked } = (e as React.ChangeEvent<HTMLInputElement>).target;
+      updateState({
+        type: ActionType.UpdateShadow,
+        payload: {
+          id,
+          key: name,
+          value: name === 'inset' ? checked : value,
+        },
+      });
+    } else {
+      const { name, value } = (e as ColorChangeEvent);
+        updateState({
+          type: ActionType.UpdateShadow,
+          payload: {
+            id,
+            key: name,
+            value: value,
+          },
+        });
+    }
   }
 
   return (

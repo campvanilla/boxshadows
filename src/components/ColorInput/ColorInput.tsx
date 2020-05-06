@@ -67,7 +67,7 @@ export const ColorInput: React.FC<ColorInputProps> = ({
      />
     {isActive && <PickerContainer>
       <PickerOverlay onClick={deactivate} />
-        <SketchPicker onChange={onPickerChange} />
+        <SketchPicker color={value} onChange={onPickerChange} />
     </PickerContainer>}
   </ColorInputWrapper>);
 }

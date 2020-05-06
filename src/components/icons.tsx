@@ -2,67 +2,60 @@ import React from 'react';
 
 export const ElementSectionIcon = () => {
   return (
-    <svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <path
-        d='M1 4C1 3.44772 1.44772 3 2 3H14C14.5523 3 15 3.44772 15 4V12C15 12.5523 14.5523 13 14 13H2C1.44772 13 1 12.5523 1 12V4Z'
-        fill='currentColor'
-      />
-    </svg>
+    <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4a1 1 0 011-1h12a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4z" fill="currentColor" /></svg>
   );
 };
 
 export const ColorSectionIcon = () => {
   return (
-    <svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <path
-        d='M11.7733 5.28676L7.99999 1.51343L4.22666 5.28676C2.14666 7.36676 2.14666 10.7468 4.22666 12.8268C5.26666 13.8668 6.63332 14.3868 7.99999 14.3868C9.36666 14.3868 10.7333 13.8668 11.7733 12.8268C13.8533 10.7468 13.8533 7.36676 11.7733 5.28676ZM7.99999 13.0601C6.93332 13.0601 5.92666 12.6468 5.17332 11.8868C4.41332 11.1268 3.99999 10.1268 3.99999 9.0601C3.99999 7.99343 4.41332 6.98676 5.17332 6.23343L7.99999 3.40009V13.0601Z'
-        fill='currentColor'
-      />
-    </svg>
+    <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.773 5.287L8 1.513 4.227 5.287a5.335 5.335 0 000 7.54A5.32 5.32 0 008 14.387a5.32 5.32 0 003.773-1.56 5.335 5.335 0 000-7.54zM8 13.06a3.952 3.952 0 01-2.827-1.173A3.964 3.964 0 014 9.06c0-1.067.413-2.073 1.173-2.827L8 3.4v9.66z" fill="currentColor" /></svg>
   );
 };
 
 export const ShadowSectionIcon = () => {
   return (
-    <svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <g clipPath='url(#clip0)'>
-        <rect x='4.73334' y='3.7334' width='11.2667' height='12.1333' rx='1' fill='#9FAABC' />
-        <rect x='2' y='1' width='11.2667' height='12.1333' rx='1' fill='currentColor' />
-      </g>
-      <defs>
-        <clipPath id='clip0'>
-          <rect width='16' height='16' fill='white' />
-        </clipPath>
-      </defs>
-    </svg>
+    <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.733" y="3.733" width="11.267" height="12.133" rx="1" fill="#9FAABC" /><rect x="2" y="1" width="11.267" height="12.133" rx="1" fill="currentColor" /><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h16v16H0z" /></clipPath></defs></svg>
   );
 };
 
 export const TrashIcon = ({ onClick }: { onClick: React.MouseEventHandler<SVGSVGElement> }) => {
   return (
-    <svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' onClick={onClick}>
-      <path d='M2 4H3.33333H14' stroke='#BFC9D9' strokeWidth='1.33333' strokeLinecap='round' strokeLinejoin='round' />
-      <path
-        d='M5.33331 3.99992V2.66659C5.33331 2.31296 5.47379 1.97382 5.72384 1.72378C5.97389 1.47373 6.31302 1.33325 6.66665 1.33325H9.33331C9.68694 1.33325 10.0261 1.47373 10.2761 1.72378C10.5262 1.97382 10.6666 2.31296 10.6666 2.66659V3.99992M12.6666 3.99992V13.3333C12.6666 13.6869 12.5262 14.026 12.2761 14.2761C12.0261 14.5261 11.6869 14.6666 11.3333 14.6666H4.66665C4.31302 14.6666 3.97389 14.5261 3.72384 14.2761C3.47379 14.026 3.33331 13.6869 3.33331 13.3333V3.99992H12.6666Z'
-        stroke='#BFC9D9'
-        strokeWidth='1.33333'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M6.66669 7.33325V11.3333'
-        stroke='#BFC9D9'
-        strokeWidth='1.33333'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-      <path
-        d='M9.33331 7.33325V11.3333'
-        stroke='#BFC9D9'
-        strokeWidth='1.33333'
-        strokeLinecap='round'
-        strokeLinejoin='round'
-      />
-    </svg>
+    <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}><path d="M2 4h12M5.333 4V2.667a1.333 1.333 0 011.334-1.334h2.666a1.333 1.333 0 011.334 1.334V4m2 0v9.333a1.333 1.333 0 01-1.334 1.334H4.667a1.334 1.334 0 01-1.334-1.334V4h9.334zM6.667 7.333v4M9.333 7.333v4" stroke="#BFC9D9" /></svg>
   );
 };
+
+export const Edit = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement> }) => {
+  return (
+    <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}><path d="M8.25 3H3a1.5 1.5 0 00-1.5 1.5V15A1.5 1.5 0 003 16.5h10.5A1.5 1.5 0 0015 15V9.75" stroke="#BFC9D9" /><path d="M13.875 1.875a1.591 1.591 0 112.25 2.25L9 11.25 6 12l.75-3 7.125-7.125z" stroke="#BFC9D9" /></svg>
+  );
+};
+
+export const Copy = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement> }) => {
+  return (
+    <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}><path d="M15 6.75H8.25a1.5 1.5 0 00-1.5 1.5V15a1.5 1.5 0 001.5 1.5H15a1.5 1.5 0 001.5-1.5V8.25a1.5 1.5 0 00-1.5-1.5z" stroke="#BFC9D9"/><path d="M3.75 11.25H3a1.5 1.5 0 01-1.5-1.5V3A1.5 1.5 0 013 1.5h6.75a1.5 1.5 0 011.5 1.5v.75" stroke="#BFC9D9" /></svg>
+  );
+};
+
+export const Share = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement> }) => {
+  return (
+    <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}><path d="M13.5 6a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM4.5 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM13.5 16.5a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5zM6.443 10.133l5.122 2.985M11.558 4.883L6.443 7.868" stroke="#BFC9D9" /></svg>
+  );
+};
+
+export const Slider = ({ onClick }: { onClick?: React.MouseEventHandler<SVGSVGElement> }) => {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={onClick}><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" stroke="#BFC9D9" /></svg>
+  );
+}
+
+export const Github = ({...rest}) => {
+  return (
+    <svg viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg" {...rest}><path d="M8 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0019 4.77 5.07 5.07 0 0018.91 1S17.73.65 15 2.48a13.38 13.38 0 00-7 0C5.27.65 4.09 1 4.09 1A5.07 5.07 0 004 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 008 18.13V22" stroke="#BFC9D9" strokeLinecap="round" strokeLinejoin="round" /></svg>
+  )
+}
+
+export const Twitter = ({...rest}) => {
+  return (
+    <svg viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...rest}><path d="M23 1a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 2s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.279-.028-.556-.08-.83A7.72 7.72 0 0023 1v0z" stroke="#BFC9D9" strokeLinecap="round" strokeLinejoin="round" /></svg>
+  )
+}

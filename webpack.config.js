@@ -6,6 +6,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require('terser-webpack-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 // variables
 const PROD = process.env.NODE_ENV === 'production';
@@ -15,7 +16,7 @@ const ANALYZE_BUNDLES = process.env.ANALYZE_BUNDLES === 'true';
 console.log('building boxshadows.com');
 console.table({ PROD, DEV, ANALYZE_BUNDLES });
 
-module.exports = {
+const config = {
   entry: {
     app: './src/index.tsx',
   },
@@ -37,6 +38,8 @@ module.exports = {
       '@contexts': path.resolve('./src/contexts'),
       '@assets': path.resolve('./src/assets'),
       '@utils': path.resolve('./src/utils'),
+      '@common': path.resolve('./src/common'),
+      '@views ': path.resolve('./src/views'),
 
       "react": "preact/compat",
       "react-dom": "preact/compat",
@@ -51,11 +54,11 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpg|jpeg)(\?[a-z0-9]+)?$/,
+        test: /\.(png|jpg|jpeg|svg)(\?[a-z0-9]+)?$/,
         loader: 'file-loader?name=img/[name].[ext]',
       },
       {
-        test: /\.svg$/,
+        test: /\.inline.svg$/,
         loader: 'svg-inline-loader',
       },
     ],
@@ -84,9 +87,20 @@ module.exports = {
       },
     }),
     ANALYZE_BUNDLES && new BundleAnalyzerPlugin(),
+    new CaseSensitivePathsPlugin(),
   ].filter(Boolean),
 
-  optimization: {
+  devServer: {
+    compress: true,
+    host: '0.0.0.0',
+    port: 7335,
+    contentBase: './dist',
+    historyApiFallback: true,
+  },
+};
+
+if (PROD) {
+  config.optimization = {
     splitChunks: {
       cacheGroups: {
         vendors: {
@@ -98,11 +112,7 @@ module.exports = {
     },
     minimize: PROD,
     minimizer: [new TerserPlugin()],
-  },
+  };
+}
 
-  devServer: {
-    compress: true,
-    port: 7335,
-    contentBase: './dist',
-  },
-};
+module.exports = config;

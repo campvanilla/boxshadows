@@ -1,40 +1,14 @@
 import styled from 'styled-components';
 
-export const ControlPanel = styled.div`
-  flex-grow: 1;
+export const ControlsWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  justify-contents: flex-start;
+  justify-content: flex-start;
   overflow-y: auto;
   width: 100%;
-`;
-
-export const Footer = styled.footer`
-  border-top: 1px solid ${props => props.theme.colors.heather};
-  display: flex;
-  flex-basis: 60px;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  padding: 16px 18px;
-  background-color: ${props => props.theme.colors.wildSand};
-  box-shadow: 0 1px 3px 1px rgba(50,50,93,.11), 0 -1px 10px rgba(0,0,0,.08);
-`;
-
-
-export const Aside = styled.aside`
-  background-color: ${props => props.theme.colors.wildSand};
-  width: 500px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
 
   .control-section {
-    border-bottom: 1px solid ${props => props.theme.colors.heather};
+    border-bottom: 1px solid ${(props) => props.theme.colors.heather};
     padding: 24px 16px;
   }
 
@@ -48,12 +22,15 @@ export const Aside = styled.aside`
     font-size: 16px;
     line-height: 1;
     font-weight: 500;
-    color: ${props => props.theme.colors.cloudBurst};
+    color: ${(props) => props.theme.colors.cloudBurst};
     margin: 0;
     margin-bottom: 24px;
     align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 
-    span, svg {
+    span,
+    svg {
       display: inline-flex;
     }
 
@@ -70,12 +47,12 @@ export const Aside = styled.aside`
       border: none;
       font-size: 24px;
       font-weight: 300;
-      color: ${props => props.theme.colors.nepal};
+      color: ${(props) => props.theme.colors.nepal};
       transition: color 0.15s ease-out;
       background: none;
 
       &:hover {
-        color: ${props => props.theme.colors.hoki};
+        color: ${(props) => props.theme.colors.hoki};
       }
     }
   }

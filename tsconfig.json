@@ -19,7 +19,9 @@
       "@components/*": ["src/components/*"],
       "@contexts/*": ["src/contexts/*"],
       "@assets/*": ["src/assets/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@common/*": ["src/common/*"],
+      "@views/*": ["src/views/*"]
     }
   },
   "include": ["./src/**/*"],
