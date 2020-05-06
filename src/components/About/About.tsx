@@ -14,11 +14,11 @@ const About = () => {
       <p className='blurb'>
         A project by
         <br />
-        <a className='link' href='https://abinavseelan.com'>
+        <a className='link' target='_blank' rel='noopener noreferrer' href='https://abinavseelan.com'>
           @abinavseelan
         </a>
         &nbsp; &amp; &nbsp;
-        <a className='link' href='https://aditimohanty.com'>
+        <a className='link' target='_blank' rel='noopener noreferrer' href='https://aditimohanty.com'>
           @aditimohanty
         </a>
       </p>
