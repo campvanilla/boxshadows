@@ -13,9 +13,11 @@ interface PresetProps {
   shadows: Array<Shadow>;
   background?: string;
   element?: string;
+  borderThickness?: string;
+  borderColor?: string;
 }
 
-const Preset: React.FC<PresetProps> = ({ shadows, background, element}) => {
+const Preset: React.FC<PresetProps> = ({ shadows, background, element, borderThickness, borderColor}) => {
   const { updateState } = useContext(StoreContext);
   const { updateState: updateSnackbarState } = useContext(SnackbarContext);
   const history = useHistory();
@@ -42,7 +44,13 @@ const Preset: React.FC<PresetProps> = ({ shadows, background, element}) => {
   }
 
   return (
-    <PresetContainer shadow={shadow} backgroundColor={background} elementColor={element}>
+    <PresetContainer
+      shadow={shadow}
+      backgroundColor={background}
+      elementColor={element}
+      borderColor={borderColor}
+      borderThickness={borderThickness}
+    >
       <div className='base'>
         <div className='shadow-preview' />
       </div>

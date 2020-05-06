@@ -11,9 +11,13 @@ export const Addon = styled.span`
   }
 `;
 
-export const FieldContainer = styled.span<{
-  fieldFocused: boolean;
-}>`
+export const FieldContainer = styled.span<{fieldFocused: boolean}>`
+  label {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+
   border: 1px solid ${props => props.theme.colors.heather};
   background-color: ${props => props.theme.colors.white};
   display: inline-flex;

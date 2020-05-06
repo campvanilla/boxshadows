@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { StoreContext } from '@contexts/Store';
 import { SnackbarContext } from '@contexts/Snackbar';
@@ -8,16 +8,11 @@ import PlayArea from '@components/PlayArea';
 import Controls from '@components/Controls';
 import Button from '@components/Button';
 import { Slider, Copy } from '@components/icons';
-import { Logo } from '@src/components/Logo';
+import { FullHeightPage, ContentArea, Aside, AsideMobileIcons } from '@src/components/Page';
 
 import { copyToClipboard } from '@utils/clipboard';
 
-// local components
-import { Page, OutputArea, Aside, AsideHeader, AsideHeaderIcons, AsideContent } from './styles';
-
 export const Editor: React.FC = () => {
-  const [drawerOpen, setDrawerState] = useState<boolean>(false);
-
   const { state } = useContext(StoreContext);
   const { state: snackBarState, updateState: updateSnackbar } = useContext(SnackbarContext);
 
@@ -36,25 +31,23 @@ export const Editor: React.FC = () => {
   }
 
   return (
-    <Page>
-      <OutputArea>
+    <FullHeightPage>
+      <ContentArea>
         <PlayArea />
-      </OutputArea>
-      <Aside open={drawerOpen}>
-        <AsideHeader>
-          <Button className='copy-btn' disabled={snackBarState.open} onClick={handleCopy}>
-            Copy to clipboard
-          </Button>
-          <Logo />
-          <AsideHeaderIcons>
-            <Copy onClick={handleCopy} />
-            <Slider onClick={() => setDrawerState((open) => !open)} />
-          </AsideHeaderIcons>
-        </AsideHeader>
-        <AsideContent>
-          <Controls />
-        </AsideContent>
+      </ContentArea>
+      <Aside
+        headerBefore={() => <Button className='copy-btn' disabled={snackBarState.open} onClick={handleCopy}>
+        Copy to clipboard
+      </Button>}
+      headerAfter={({ toggleAside }) => (
+        <AsideMobileIcons>
+        <Copy onClick={handleCopy} />
+        <Slider onClick={toggleAside} />
+      </AsideMobileIcons>
+      )}
+      >
+        <Controls />
       </Aside>
-    </Page>
+    </FullHeightPage>
   );
 };

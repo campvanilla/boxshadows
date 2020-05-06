@@ -18,7 +18,7 @@ export const AboutContainer = styled.div`
   .blurb {
     text-align: center;
     font-size: 14px;
-    color: ${(props) => props.theme.colors.heather};
+    color: ${(props) => props.theme.colors.hoki};
     margin: 0;
   }
 
@@ -50,13 +50,14 @@ export const AboutContainer = styled.div`
 
   .cta-container {
     margin-top: 36px;
-
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 
   .cta {
+    margin: 10px 0;
     display: inline-block;
     transition: all 0.3s;
     padding: 8px 12px;

@@ -27,14 +27,15 @@ export const Overlay = styled.div`
 
 export const DialogContainer = styled.dialog`
   height: auto;
-  max-height: 70vh;
+  max-height: 70%;
   overflow-y: auto;
+  max-width: 85%;
 
   padding: 24px 12px;
   border-radius: 4px;
   border: 1px solid ${props => props.theme.colors.heather};
 
   @media (min-width: ${props => props.theme.breakpoints.medium}) {
-    max-width: 55vw;
+    max-width: 55%;
   }
 `;

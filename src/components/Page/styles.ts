@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
-export const OutputArea = styled.main`
-  background-color: ${(props) => props.theme.colors.whiteish};
-  flex-grow: 1;
-  margin-top: 56px;
-  max-height: 100%;
-  overflow: scroll;
-
-  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
-    margin-top: 86px;
-  }
-`;
-
-export const Page = styled.div`
+export const FullHeightPage = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 600px;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
-  min-height: 600px;
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     flex-direction: row;
+  }
+`;
+
+export const ContentArea = styled.main`
+  background-color: ${(props) => props.theme.colors.whiteish};
+  max-height: 100%;
+  overflow-y: scroll;
+  flex-grow: 1;
+
+  margin-top: 56px;
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    margin-top: 86px;
   }
 `;
 
@@ -69,24 +69,55 @@ export const AsideHeader = styled.header`
   }
 `;
 
-export const Aside = styled.aside<{ open?: boolean }>`
+export const StyledAside = styled.aside<{ open?: boolean }>`
   background-color: ${(props) => props.theme.colors.wildSand};
   display: flex;
   flex-direction: column;
-  height: 77px;
   transition: height 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  transition: min-height 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
   overflow-y: hidden;
 
-  ${(props) => props.open && `height: 50%;`}
+  ${(props) => props.open ? `
+    min-height: 50%;
+    height: 50%;
+  `:`
+    height: 77px;
+    min-height: 77px;
+  `}
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     flex-direction: column-reverse;
+    min-width: 500px;
     width: 500px;
+    max-width: 500px;
     height: 100%;
   }
 `;
 
 export const AsideContent = styled.section`
   flex-grow: 1;
-  overflow-y: auto;
+  overflow: scroll;
+  max-width: 100%;
+`;
+
+export const AsideMobileIcons = styled.span`
+  padding: 13px;
+
+  svg {
+    width: 18px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+  svg path {
+    stroke: ${(props) => props.theme.colors.nepal};
+  }
+
+  svg:hover path {
+    stroke: ${(props) => props.theme.colors.cloudBurst};
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
+    display: none;
+  }
 `;

@@ -1,6 +1,6 @@
 import SketchPicker from 'react-color/lib/Sketch';
 import {isFunction} from '@utils/lang';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { ColorChangeHandler } from 'react-color';
 
 import TextInput, { TextInputProps, TextInputAddon } from '@components/TextInput';
@@ -23,25 +23,26 @@ export const ColorInput: React.FC<ColorInputProps> = ({
 }: ColorInputProps) => {
   const [isActive, setActive] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const activateOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (isFunction(onFocus)) {
-      onFocus(e);
+  const pickerRef = useRef(null);
+  const clickAwayHandler = useRef((e) => {
+    if (!pickerRef.current.base.contains(e.target)) {
+      setActive(false);
+      document.removeEventListener('click', clickAwayHandler.current);
     }
-    setActive(true);
-  };
+  })
+
+  useEffect(() => {
+    if (isActive) {
+      document.addEventListener('click', clickAwayHandler.current);
+    }
+  }, [isActive]);
 
   const activateOnClick = () => {
     inputRef.current?.focus();
     setActive(true);
   };
 
-  const deactivate = () => {
-    setActive(false);
-  };
-
   const onPickerChange: ColorChangeHandler = (color) => {
-    console.log("onPickerChange:ColorChangeHandler -> color", color)
     const { hex } = color;
     if (isFunction(onChange)) {
       onChange({ name, value: hex });
@@ -59,15 +60,23 @@ export const ColorInput: React.FC<ColorInputProps> = ({
     <TextInput
       {...rest}
       ref={inputRef}
-      onFocus={activateOnFocus}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          activateOnClick();
+        }
+      }}
+      onClick={activateOnClick}
       name={name}
       value={value}
       prepend={indicator}
       onChange={onChange}
      />
     {isActive && <PickerContainer>
-      <PickerOverlay onClick={deactivate} />
-        <SketchPicker color={value} onChange={onPickerChange} />
+        <SketchPicker
+          ref={pickerRef}
+          color={value}
+          onChange={onPickerChange}
+        />
     </PickerContainer>}
   </ColorInputWrapper>);
 }

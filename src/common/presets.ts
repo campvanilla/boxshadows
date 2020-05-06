@@ -4,10 +4,13 @@ interface Preset {
   shadows: Array<Shadow>;
   background?: string;
   element?: string;
+  borderColor?: string;
+  borderThickness?: string;
 }
 
 interface Section {
   title: string;
+  id: string;
   presets: Array<Preset>;
 }
 
@@ -452,31 +455,158 @@ const ThreeD = [
   },
 ];
 
+const Windows95 = [
+  {
+    element: '#B8B8B8',
+    shadows: [
+      {
+        id: 2,
+        offsetX: '5',
+        offsetY: '5',
+        blur: '0',
+        spread: '0',
+        color: '#EBEBEB',
+        inset: true,
+      },
+      {
+        id: 1,
+        offsetX: '-5',
+        offsetY: '-5',
+        blur: '0',
+        spread: '0',
+        color: '#818181',
+        inset: true,
+      },
+    ],
+  },
+];
+
+const Minecraft = [
+  {
+    element: '#686868',
+    background: '#7c7c7c',
+    borderThickness: '2',
+    borderColor: '#000000',
+    shadows: [
+      {
+        id: 1,
+        offsetX: '-2',
+        offsetY: '-4',
+        blur: '0',
+        spread: '0',
+        color: '#0006',
+        inset: true,
+      },
+      {
+        id: 2,
+        offsetX: '2',
+        offsetY: '2',
+        blur: '0',
+        spread: '0',
+        color: '#FFF7',
+        inset: true,
+      },
+    ],
+  },
+];
+
+const Skeuomorphism = [
+  {
+    element: '#E4EDF7',
+    background: '#E0E9F5',
+    shadows: [
+      {
+        id: 1,
+        offsetX: '3',
+        offsetY: '3',
+        blur: '6',
+        spread: '0',
+        color: '#CCDBE8',
+        inset: true,
+      },
+      {
+        id: 2,
+        offsetX: '-3',
+        offsetY: '-3',
+        blur: '6',
+        spread: '1',
+        color: 'rgba(255,255,255,0.5)',
+        inset: true,
+      },
+    ],
+  },
+  {
+    element: '#E4EDF7',
+    background: '#E0E9F5',
+    shadows: [
+      {
+        id: 1,
+        offsetX: '6',
+        offsetY: '2',
+        blur: '16',
+        spread: '0',
+        color: 'rgba(136, 165, 191, 0.48)',
+        inset: false,
+      },
+      {
+        id: 2,
+        offsetX: '-6',
+        offsetY: '-2',
+        blur: '16',
+        spread: '0',
+        color: 'rgba(255, 255, 255, 0.8)',
+        inset: false,
+      },
+    ],
+  },
+]
+
 const Presets: PresetData = {
   sections: [
     {
       title: 'Materialize',
       presets: [...MaterializeCSS],
+      id: 'preset-section--materialize',
     },
     {
       title: 'TailWindCSS',
       presets: [...TailwindCSS],
+      id: 'preset-section--tailwindcss',
     },
     {
       title: '3D',
       presets: [...ThreeD],
+      id: 'preset-section--3d',
+    },
+    {
+      title: 'Minecraft',
+      presets: [...Minecraft],
+      id: 'preset-section--minecraft',
+    },
+    {
+      title: 'Skeuomorphism',
+      presets: [...Skeuomorphism],
+      id: 'preset-section--skeu',
+    },
+    {
+      title: 'Windows 95',
+      presets: [...Windows95],
+      id: 'preset-section--windows95',
     },
     {
       title: 'Stripe',
       presets: [...Stripe],
+      id: 'preset-section--stripe',
     },
     {
       title: 'CodeSandbox',
       presets: [...CodeSandbox],
+      id: 'preset-section--codesandbox',
     },
     {
       title: 'Trello',
       presets: [...Trello],
+      id: 'preset-section--trello',
     },
   ],
 };
