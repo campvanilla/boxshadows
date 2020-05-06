@@ -51,7 +51,7 @@ export const PresetContainer = styled.article<PresetContainerProps>`
     transition: color 0.15s ease-out;
     font-size: 12px;
     cursor: pointer;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 
     display: flex;
     flex-direction: column;

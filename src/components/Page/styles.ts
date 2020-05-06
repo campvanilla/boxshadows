@@ -73,12 +73,17 @@ export const StyledAside = styled.aside<{ open?: boolean }>`
   background-color: ${(props) => props.theme.colors.wildSand};
   display: flex;
   flex-direction: column;
-  height: 77px;
-  min-height: 77px;
   transition: height 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  transition: min-height 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
   overflow-y: hidden;
 
-  ${(props) => props.open && `height: 50%;`}
+  ${(props) => props.open ? `
+    min-height: 50%;
+    height: 50%;
+  `:`
+    height: 77px;
+    min-height: 77px;
+  `}
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
     flex-direction: column-reverse;

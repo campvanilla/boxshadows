@@ -72,6 +72,7 @@ export const AsideNavHeader = styled.h2`
   letter-spacing: 2px;
   margin: 0;
   margin-top: 10px;
+  font-weight: 500;
 `;
 
 export const PresetNavList = styled.ul`
