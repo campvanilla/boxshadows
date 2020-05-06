@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Edit, Share, Copy } from '@components/icons';
+import { Edit, Copy } from '@components/icons';
 import { Shadow } from '@common/types';
 import { copyToClipboard } from '@utils/clipboard';
 import { StoreContext, ActionType } from '@contexts/Store';
@@ -50,10 +50,6 @@ const Preset: React.FC<PresetProps> = ({ shadows, background }) => {
           <Copy />
           Copy
         </li>
-        {/* <li className='action'>
-          <Share />
-          Share
-        </li> */}
       </ul>
     </PresetContainer>
   )

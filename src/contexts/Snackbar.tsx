@@ -19,7 +19,7 @@ const SnackBarProvider = ({ children }) => {
   const contextValue: Context = {
     state,
     updateState: (open, content = '') => {
-      if (open === true && !state.open) {
+      if (open === true && (!state.open || !state.content)) {
         setTimeout(() => {
           updateState((oldState) => {
             return {

@@ -7,6 +7,7 @@ import StoreProvider from '@contexts/Store';
 import SnackbarProvider from '@contexts/Snackbar';
 import Navigation from '@components/Navigation';
 import Snackbar from '@components/Snackbar';
+import Dialog from '@components/Dialog';
 import About from '@components/About';
 
 // routes or views
@@ -21,6 +22,8 @@ import { Theme } from '@styles/theme';
 import { setWindowCustomProperties } from '@utils/dom';
 
 const App = () => {
+  const [dialogOpenState, setDialogOpenState] = useState(false);
+
   useEffect(() => {
     return setWindowCustomProperties();
   });
@@ -30,15 +33,21 @@ const App = () => {
       <GlobalStyles />
       <SnackbarProvider>
         <StoreProvider>
-          <Snackbar />
           <Router>
-            <Navigation />
+            <Navigation
+              triggers={{
+                about: () => setDialogOpenState(true),
+              }}
+            />
             <Switch>
               <Route exact path='/' component={Editor} />
               <Route exact path='/presets' component={Presets} />
             </Switch>
           </Router>
-          <About />
+          <Snackbar />
+          <Dialog open={dialogOpenState} onClose={() => setDialogOpenState(false)}>
+            <About />
+          </Dialog>
         </StoreProvider>
       </SnackbarProvider>
     </ThemeProvider>
