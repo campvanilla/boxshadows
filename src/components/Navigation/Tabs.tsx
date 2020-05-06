@@ -41,6 +41,11 @@ const Item = styled.div`
   &:hover {
     background-color: ${(props) => props.theme.colors.gallery};
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const TabsContainer = styled.nav`
@@ -88,6 +93,11 @@ export const Tabs: React.FC<TabsProps> = ({ triggers }) => {
       ))}
       <Item onClick={triggers.about}>
         About
+      </Item>
+      <Item onClick={triggers.about}>
+        <a href='https://github.com/campvanilla/boxshadows' target='_blank' rel='noopener noreferrer'>
+          Github
+        </a>
       </Item>
     </TabsContainer>
   );

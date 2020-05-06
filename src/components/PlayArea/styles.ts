@@ -4,7 +4,7 @@ interface PlayAreaContainerProps {
   backgroundColor: string;
 }
 
-export const PlayAreaContainer = Styled.main<PlayAreaContainerProps>`
+export const PlayAreaContainer = Styled.section<PlayAreaContainerProps>`
   position: relative;
   flex-grow: 1;
   height: 100%;
