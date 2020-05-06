@@ -16,6 +16,7 @@ export const Page = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   min-height: 600px;
 
   @media (min-width: ${(props) => props.theme.breakpoints.medium}) {
