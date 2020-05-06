@@ -452,6 +452,83 @@ const ThreeD = [
   },
 ];
 
+const Windows95 = [
+  {
+    element: '#B8B8B8',
+    shadows: [
+      {
+        id: 2,
+        offsetX: '5',
+        offsetY: '5',
+        blur: '0',
+        spread: '0',
+        color: '#EBEBEB',
+        inset: true,
+      },
+      {
+        id: 1,
+        offsetX: '-5',
+        offsetY: '-5',
+        blur: '0',
+        spread: '0',
+        color: '#818181',
+        inset: true,
+      },
+    ],
+  },
+];
+
+const Skeuomorphism = [
+  {
+    element: '#E4EDF7',
+    background: '#E0E9F5',
+    shadows: [
+      {
+        id: 1,
+        offsetX: '3',
+        offsetY: '3',
+        blur: '6',
+        spread: '0',
+        color: '#CCDBE8',
+        inset: true,
+      },
+      {
+        id: 2,
+        offsetX: '-3',
+        offsetY: '-3',
+        blur: '6',
+        spread: '1',
+        color: 'rgba(255,255,255,0.5)',
+        inset: true,
+      },
+    ],
+  },
+  {
+    element: '#E4EDF7',
+    background: '#E0E9F5',
+    shadows: [
+      {
+        id: 1,
+        offsetX: '6',
+        offsetY: '2',
+        blur: '16',
+        spread: '0',
+        color: 'rgba(136, 165, 191, 0.48)',
+        inset: false,
+      },
+      {
+        id: 2,
+        offsetX: '-6',
+        offsetY: '-2',
+        blur: '16',
+        spread: '0',
+        color: 'rgba(255, 255, 255, 0.8)',
+        inset: false,
+      },
+    ],
+  },
+]
+
 const Presets: PresetData = {
   sections: [
     {
@@ -465,6 +542,14 @@ const Presets: PresetData = {
     {
       title: '3D',
       presets: [...ThreeD],
+    },
+    {
+      title: 'Skeuomorphism',
+      presets: [...Skeuomorphism],
+    },
+    {
+      title: 'Windows 95',
+      presets: [...Windows95],
     },
     {
       title: 'Stripe',
