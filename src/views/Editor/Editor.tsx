@@ -8,11 +8,9 @@ import PlayArea from '@components/PlayArea';
 import Controls from '@components/Controls';
 import Button from '@components/Button';
 import { Slider, Copy } from '@components/icons';
+import { Logo } from '@src/components/Logo';
 
 import { copyToClipboard } from '@utils/clipboard';
-
-// images
-import Logo from '@assets/logo-light-medium-400x70.png';
 
 // local components
 import { Page, OutputArea, Aside, AsideHeader, AsideHeaderIcons, AsideContent } from './styles';
@@ -47,7 +45,7 @@ export const Editor: React.FC = () => {
           <Button className='copy-btn' disabled={snackBarState.open} onClick={handleCopy}>
             Copy to clipboard
           </Button>
-          <img src={Logo} className='logo' />
+          <Logo />
           <AsideHeaderIcons>
             <Copy onClick={handleCopy} />
             <Slider onClick={() => setDrawerState((open) => !open)} />
