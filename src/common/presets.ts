@@ -8,6 +8,7 @@ interface Preset {
 
 interface Section {
   title: string;
+  id: string;
   presets: Array<Preset>;
 }
 
@@ -534,34 +535,42 @@ const Presets: PresetData = {
     {
       title: 'Materialize',
       presets: [...MaterializeCSS],
+      id: 'preset-section--materialize',
     },
     {
       title: 'TailWindCSS',
       presets: [...TailwindCSS],
+      id: 'preset-section--tailwindcss',
     },
     {
       title: '3D',
       presets: [...ThreeD],
+      id: 'preset-section--3d',
     },
     {
       title: 'Skeuomorphism',
       presets: [...Skeuomorphism],
+      id: 'preset-section--skeu',
     },
     {
       title: 'Windows 95',
       presets: [...Windows95],
+      id: 'preset-section--windows95',
     },
     {
       title: 'Stripe',
       presets: [...Stripe],
+      id: 'preset-section--stripe',
     },
     {
       title: 'CodeSandbox',
       presets: [...CodeSandbox],
+      id: 'preset-section--codesandbox',
     },
     {
       title: 'Trello',
       presets: [...Trello],
+      id: 'preset-section--trello',
     },
   ],
 };

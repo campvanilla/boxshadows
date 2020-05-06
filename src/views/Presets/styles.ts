@@ -8,7 +8,7 @@ export const PresetsWrapper = styled.section`
 `;
 
 
-export const Heading = styled.h3`
+export const Heading = styled.h2`
   font-size: 16px;
   margin: 0;
   margin-bottom: 24px;
