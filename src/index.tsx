@@ -19,14 +19,13 @@ import GlobalStyles from '@styles/globalStyles';
 import { Theme } from '@styles/theme';
 
 // utils
-import { setWindowCustomProperties } from '@utils/dom';
+import { setWindowCustomProperties, trackClickEvents } from '@utils/dom';
 
 const App = () => {
   const [dialogOpenState, setDialogOpenState] = useState(false);
 
-  useEffect(() => {
-    return setWindowCustomProperties();
-  });
+  useEffect(setWindowCustomProperties);
+  useEffect(trackClickEvents);
 
   return (
     <ThemeProvider theme={Theme}>

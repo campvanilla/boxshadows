@@ -1,3 +1,4 @@
+// / <reference types="gtag.js" />
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -19,4 +20,13 @@ declare module '*.svg' {
   const value: string;
 
   export default value;
+}
+
+interface Window {
+  /**
+   * The gtag.js
+   * @see [Google Analytics documentation](https://developers.google.com/analytics/devguides/collection/analyticsjs)
+   * @see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/23718
+   */
+  gtag: Gtag.Gtag;
 }
