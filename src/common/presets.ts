@@ -1,6 +1,7 @@
 import { Shadow } from '@common/types';
 
 interface Preset {
+  name: string;
   shadows: Array<Shadow>;
   background?: string;
   element?: string;
@@ -18,8 +19,9 @@ interface PresetData {
   sections: Array<Section>;
 }
 
-const MaterializeCSS = [
+const MaterializeCSS: Array<Preset> = [
   {
+    name: 'Material Design Level 1',
     background: '#fff',
     shadows: [
       {
@@ -52,6 +54,7 @@ const MaterializeCSS = [
     ],
   },
   {
+    name: 'Material Design Level 2',
     background: '#fff',
     shadows: [
       {
@@ -84,6 +87,7 @@ const MaterializeCSS = [
     ],
   },
   {
+    name: 'Material Design Level 3',
     background: '#fff',
     shadows: [
       {
@@ -116,6 +120,7 @@ const MaterializeCSS = [
     ],
   },
   {
+    name: 'Material Design Level 4',
     background: '#fff',
     shadows: [
       {
@@ -148,6 +153,7 @@ const MaterializeCSS = [
     ],
   },
   {
+    name: 'Material Design Level 5',
     background: '#fff',
     shadows: [
       {
@@ -181,8 +187,9 @@ const MaterializeCSS = [
   },
 ];
 
-const Stripe = [
+const Stripe: Array<Preset> = [
   {
+    name: 'Stripe Card',
     background: '#F6F9FC',
     shadows: [
       {
@@ -215,6 +222,7 @@ const Stripe = [
     ],
   },
   {
+    name: 'Stripe Button',
     background: '#F6F9FC',
     shadows: [
       {
@@ -239,8 +247,9 @@ const Stripe = [
   },
 ];
 
-const CodeSandbox = [
+const CodeSandbox: Array<Preset> = [
   {
+    name: 'Codesandbox Card',
     shadows: [
       {
         id: 1,
@@ -255,8 +264,9 @@ const CodeSandbox = [
   },
 ]
 
-const TailwindCSS = [
+const TailwindCSS: Array<Preset> = [
   {
+    name: 'Tailwind xs',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -271,6 +281,7 @@ const TailwindCSS = [
     ],
   },
   {
+    name: 'Tailwind sm',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -285,6 +296,7 @@ const TailwindCSS = [
     ],
   },
   {
+    name: 'Tailwind base',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -308,6 +320,7 @@ const TailwindCSS = [
     ],
   },
   {
+    name: 'Tailwind md',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -331,6 +344,7 @@ const TailwindCSS = [
     ],
   },
   {
+    name: 'Tailwind lg',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -354,6 +368,7 @@ const TailwindCSS = [
     ],
   },
   {
+    name: 'Tailwind xl',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -377,6 +392,7 @@ const TailwindCSS = [
     ],
   },
   {
+    name: 'Tailwind 2xl',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -391,6 +407,7 @@ const TailwindCSS = [
     ],
   },
   {
+    name: 'Tailwind inner',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -405,6 +422,7 @@ const TailwindCSS = [
     ],
   },
   {
+    name: 'Tailwind outline',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -420,8 +438,9 @@ const TailwindCSS = [
   },
 ];
 
-const Trello = [
+const Trello: Array<Preset> = [
   {
+    name: 'Trello Card',
     background: 'rgb(247,250,252)',
     shadows: [
       {
@@ -437,8 +456,9 @@ const Trello = [
   },
 ];
 
-const ThreeD = [
+const ThreeD: Array<Preset> = [
   {
+    name: '3D Button',
     element: '#e74c3c',
     background: 'rgb(247,250,252)',
     shadows: [
@@ -455,8 +475,9 @@ const ThreeD = [
   },
 ];
 
-const Comic = [
+const Comic: Array<Preset> = [
   {
+    name: 'Comic Button',
     element: '#FFFFFF',
     background: '#FFFFFF',
     borderThickness: '2',
@@ -475,8 +496,9 @@ const Comic = [
   },
 ];
 
-const Windows95 = [
+const Windows95: Array<Preset> = [
   {
+    name: 'Windows95 Button',
     element: '#B8B8B8',
     shadows: [
       {
@@ -501,8 +523,9 @@ const Windows95 = [
   },
 ];
 
-const Minecraft = [
+const Minecraft: Array<Preset> = [
   {
+    name: 'Minecraft Button',
     element: '#686868',
     background: '#7c7c7c',
     borderThickness: '2',
@@ -530,8 +553,9 @@ const Minecraft = [
   },
 ];
 
-const Skeuomorphism = [
+const Skeuomorphism: Array<Preset> = [
   {
+    name: 'Skeuomorphism Indent',
     element: '#E4EDF7',
     background: '#E0E9F5',
     shadows: [
@@ -556,6 +580,7 @@ const Skeuomorphism = [
     ],
   },
   {
+    name: 'Skeuomorphism Bump',
     element: '#E4EDF7',
     background: '#E0E9F5',
     shadows: [

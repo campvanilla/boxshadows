@@ -11,11 +11,8 @@ import { PresetContainer } from './styles';
 import { track } from '@src/utils/analytics';
 
 interface PresetProps {
-  meta: {
-    section: string;
-    index: number;
-  };
   preset: {
+    name: string;
     shadows: Array<Shadow>;
     background?: string;
     element?: string;
@@ -24,7 +21,7 @@ interface PresetProps {
   };
 }
 
-const Preset: React.FC<PresetProps> = ({ preset, meta }) => {
+const Preset: React.FC<PresetProps> = ({ preset }) => {
   const { updateState } = useContext(StoreContext);
   const { updateState: updateSnackbarState } = useContext(SnackbarContext);
   const history = useHistory();
@@ -43,11 +40,11 @@ const Preset: React.FC<PresetProps> = ({ preset, meta }) => {
       },
     });
     history.push('/');
-    track({ action: 'edit-preset', label: meta.section, value: meta.index });
+    track({ action: 'edit-preset', label: preset.name });
   }
 
   const handleCopy = () => {
-    copyToClipboard(shadow, meta.section, meta.index);
+    copyToClipboard(shadow, preset.name);
     updateSnackbarState(true, '🚀 Copied!');
   }
 
