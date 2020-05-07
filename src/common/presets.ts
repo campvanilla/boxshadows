@@ -455,6 +455,26 @@ const ThreeD = [
   },
 ];
 
+const Comic = [
+  {
+    element: '#FFFFFF',
+    background: '#FFFFFF',
+    borderThickness: '2',
+    borderColor: '#000000',
+    shadows: [
+      {
+        id: 1,
+        offsetX: '0',
+        offsetY: '5',
+        blur: '0',
+        spread: '0',
+        color: '#000000',
+        inset: false,
+      },
+    ],
+  },
+];
+
 const Windows95 = [
   {
     element: '#B8B8B8',
@@ -577,6 +597,11 @@ const Presets: PresetData = {
       title: '3D',
       presets: [...ThreeD],
       id: 'preset-section--3d',
+    },
+    {
+      title: 'Comic',
+      presets: [...Comic],
+      id: 'preset-section--comic',
     },
     {
       title: 'Minecraft',
