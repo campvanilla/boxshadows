@@ -31,7 +31,7 @@ export const PresetContainer = styled.article<PresetContainerProps>`
     height: 90px;
     width: 90px;
     border-radius: 4px;
-    ${props => props.borderColor && props.borderThickness && `border: ${props.borderThickness} solid ${props.borderColor};`}
+    ${props => props.borderColor && props.borderThickness && `border: ${props.borderThickness}px solid ${props.borderColor};`}
   }
 
   display: flex;

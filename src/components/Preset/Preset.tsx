@@ -10,27 +10,31 @@ import { SnackbarContext } from '@contexts/Snackbar';
 import { PresetContainer } from './styles';
 
 interface PresetProps {
-  shadows: Array<Shadow>;
-  background?: string;
-  element?: string;
-  borderThickness?: string;
-  borderColor?: string;
+  preset: {
+    shadows: Array<Shadow>;
+    background?: string;
+    element?: string;
+    borderThickness?: string;
+    borderColor?: string;
+  };
 }
 
-const Preset: React.FC<PresetProps> = ({ shadows, background, element, borderThickness, borderColor}) => {
+const Preset: React.FC<PresetProps> = ({ preset }) => {
   const { updateState } = useContext(StoreContext);
   const { updateState: updateSnackbarState } = useContext(SnackbarContext);
   const history = useHistory();
 
-  const shadow = shadows.map(shadow => `${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blur}px ${shadow.spread}px ${shadow.color} ${shadow.inset ? 'inset' : ''}`).join(', ');
+  const shadow = preset.shadows.map(shadow => `${shadow.offsetX}px ${shadow.offsetY}px ${shadow.blur}px ${shadow.spread}px ${shadow.color} ${shadow.inset ? 'inset' : ''}`).join(', ');
 
   const edit = () => {
     updateState({
       type: ActionType.EditPreset,
       payload: {
-        pageBackground: background,
-        elementBackground: element,
-        shadows,
+        borderColor: preset.borderColor,
+        borderThickness: preset.borderThickness,
+        pageBackground: preset.background,
+        elementBackground: preset.element,
+        shadows: preset.shadows,
       },
     });
 
@@ -46,10 +50,10 @@ const Preset: React.FC<PresetProps> = ({ shadows, background, element, borderThi
   return (
     <PresetContainer
       shadow={shadow}
-      backgroundColor={background}
-      elementColor={element}
-      borderColor={borderColor}
-      borderThickness={borderThickness}
+      backgroundColor={preset.background}
+      elementColor={preset.element}
+      borderColor={preset.borderColor}
+      borderThickness={preset.borderThickness}
     >
       <div className='base'>
         <div className='shadow-preview' />
