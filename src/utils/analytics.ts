@@ -1,4 +1,4 @@
-type EventTypes = 'click';
+type EventTypes = 'click' | 'copy-to-clipboard';
 
 /**
  * @see [Sending with different transport types](https://developers.google.com/analytics/devguides/collection/gtagjs/sending-data#specify_different_transport_mechanisms)

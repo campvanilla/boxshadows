@@ -36,17 +36,17 @@ export const Tabs: React.FC<TabsProps> = ({ triggers }) => {
           {tab.name}
         </NavLink>
       ))}
-      <Item onClick={triggers.about}>About</Item>
-      <Item onClick={triggers.about}>
-        <a
-          href='https://github.com/campvanilla/boxshadows'
-          target='_blank'
+      <Item as='a' onClick={(event) => {
+        event.preventDefault();
+        triggers.about();
+        track({ label: `tab-nav-about` });
+      }} >About</Item>
+      <Item onClick={() => {
+        track({ label: `tab-nav-github` });
+      }} as='a' href='https://github.com/campvanilla/boxshadows'
           rel='noopener noreferrer'
-          title='boxshadows.com on GitHub'
-          onClick={trackClickExternalLink}
-        >
+          title='boxshadows.com on GitHub'>
           Github
-        </a>
       </Item>
     </TabsContainer>
   );
