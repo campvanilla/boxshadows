@@ -41,39 +41,4 @@ export const setWindowCustomProperties = () => {
   return () => {
     window.removeEventListener('resize', setViewportHeightOnResize);
   };
-}
-
-export const trackClickEvents = () => {
-  const trackClick = (event: MouseEvent) => {
-    const target = event.target as HTMLElement;
-    if (target.getAttribute && target.getAttribute('data-tracking-enabled')) {
-      const label = target.getAttribute('data-tracking-label');
-      const valueAttribute = target.getAttribute('data-tracking-value');
-      const value = valueAttribute ? parseInt(valueAttribute, 10) : null;
-
-      const params: Gtag.EventParams = {
-        event_category: 'boxshadows',
-      };
-
-      if (label) {
-        params.event_label = label;
-      } else {
-        params.event_label = target.innerText;
-      }
-
-      if (value && !Number.isNaN(value)) {
-        params.value = value;
-      }
-
-      window.gtag('event', 'click', params);
-    }
-  };
-
-  document.body.addEventListener('click', trackClick, {
-    capture: true,
-  });
-
-  return () => {
-    document.body.removeEventListener('click', trackClick);
-  };
 };

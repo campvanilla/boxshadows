@@ -4,6 +4,7 @@ import Logo from '@assets/logo-light-medium-400x70.png';
 import { Github, Twitter } from '@components/icons';
 
 import { AboutContainer } from './styles';
+import { trackClickExternalLink, track } from '@src/utils/analytics';
 
 const About = () => {
   return (
@@ -14,11 +15,11 @@ const About = () => {
       <p className='blurb'>
         A project by
         <br />
-        <a className='link' target='_blank' rel='noopener noreferrer' href='https://abinavseelan.com'>
+        <a className='link' target='_blank' rel='noopener noreferrer' href='https://abinavseelan.com' onClick={trackClickExternalLink}>
           @abinavseelan
         </a>
         &nbsp; &amp; &nbsp;
-        <a className='link' target='_blank' rel='noopener noreferrer' href='https://aditimohanty.com'>
+        <a className='link' target='_blank' rel='noopener noreferrer' href='https://aditimohanty.com' onClick={trackClickExternalLink}>
           @aditimohanty
         </a>
       </p>
@@ -28,6 +29,9 @@ const About = () => {
           rel='noopener noreferrer'
           href='https://github.com/campvanilla/boxshadows'
           className='hidden-link'
+          onClick={() => {
+            track({ label: 'STAR ON GITHUB', href: 'https://github.com/campvanilla/boxshadows' });
+          }}
         >
           <Button className='cta github'>
             <Github />
@@ -39,6 +43,9 @@ const About = () => {
           target='_blank'
           rel='noopener noreferrer'
           href='https://twitter.com/intent/tweet?text=Boxshadows+%7C+Create+%26+tweak+css+box-shadows+or+roll+with+some+neat+presets%21+%E2%9A%A1%EF%B8%8F+https%3A%2Fboxshadows.com'
+          onClick={() => {
+            track({ label: 'SHARE ON TWITTER', href: 'https://twitter.com/intent/tweet?text=Boxshadows+%7C+Create+%26+tweak+css+box-shadows+or+roll+with+some+neat+presets%21+%E2%9A%A1%EF%B8%8F+https%3A%2Fboxshadows.com' });
+          }}
         >
           <Button className='cta twitter'>
             <Twitter />
