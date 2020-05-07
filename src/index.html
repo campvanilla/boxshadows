@@ -122,7 +122,11 @@
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
-      gtag('config', 'UA-97738324-2');
+      gtag('config', 'UA-97738324-2', {
+        'custom_map': {
+          dimension1: 'href',
+        },
+      });
     </script>
     <script type="application/ld+json">
       {

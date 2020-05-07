@@ -26,7 +26,7 @@ export const Editor: React.FC = () => {
     .join(', ');
 
   const handleCopy = () => {
-    copyToClipboard(shadow);
+    copyToClipboard(shadow, 'editor');
     updateSnackbar(true, '🚀 Copied!');
   }
 

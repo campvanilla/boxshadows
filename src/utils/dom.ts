@@ -41,4 +41,4 @@ export const setWindowCustomProperties = () => {
   return () => {
     window.removeEventListener('resize', setViewportHeightOnResize);
   };
-}
+};

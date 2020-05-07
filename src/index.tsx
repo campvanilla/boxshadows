@@ -24,9 +24,7 @@ import { setWindowCustomProperties } from '@utils/dom';
 const App = () => {
   const [dialogOpenState, setDialogOpenState] = useState(false);
 
-  useEffect(() => {
-    return setWindowCustomProperties();
-  });
+  useEffect(setWindowCustomProperties);
 
   return (
     <ThemeProvider theme={Theme}>

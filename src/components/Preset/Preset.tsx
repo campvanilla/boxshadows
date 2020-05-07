@@ -8,8 +8,13 @@ import { StoreContext, ActionType } from '@contexts/Store';
 import { SnackbarContext } from '@contexts/Snackbar';
 
 import { PresetContainer } from './styles';
+import { track } from '@src/utils/analytics';
 
 interface PresetProps {
+  meta: {
+    section: string;
+    index: number;
+  };
   preset: {
     shadows: Array<Shadow>;
     background?: string;
@@ -19,7 +24,7 @@ interface PresetProps {
   };
 }
 
-const Preset: React.FC<PresetProps> = ({ preset }) => {
+const Preset: React.FC<PresetProps> = ({ preset, meta }) => {
   const { updateState } = useContext(StoreContext);
   const { updateState: updateSnackbarState } = useContext(SnackbarContext);
   const history = useHistory();
@@ -37,13 +42,12 @@ const Preset: React.FC<PresetProps> = ({ preset }) => {
         shadows: preset.shadows,
       },
     });
-
     history.push('/');
+    track({ action: 'edit-preset', label: meta.section, value: meta.index });
   }
 
   const handleCopy = () => {
-    copyToClipboard(shadow);
-
+    copyToClipboard(shadow, meta.section, meta.index);
     updateSnackbarState(true, '🚀 Copied!');
   }
 
