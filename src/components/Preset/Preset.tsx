@@ -11,10 +11,6 @@ import { PresetContainer } from './styles';
 import { track } from '@src/utils/analytics';
 
 interface PresetProps {
-  meta: {
-    section: string;
-    index: number;
-  };
   preset: {
     name: string;
     shadows: Array<Shadow>;

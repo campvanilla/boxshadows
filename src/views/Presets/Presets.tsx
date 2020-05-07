@@ -32,7 +32,6 @@ const PresetGrid: React.FC = () => {
                   <li key={index} className='item'>
                     <Preset
                       preset={preset}
-                      meta={{ section: section.id, index }}
                     />
                   </li>
                 ))}
