@@ -1,4 +1,4 @@
-type EventTypes = 'click' | 'copy-to-clipboard';
+type EventTypes = 'click' | 'copy-to-clipboard' | 'edit-preset';
 
 /**
  * @see [Sending with different transport types](https://developers.google.com/analytics/devguides/collection/gtagjs/sending-data#specify_different_transport_mechanisms)
@@ -49,7 +49,9 @@ export const track = (event: Event) => {
   if (process.env.NODE_ENV === 'production') {
     window.gtag('event', action, params);
   } else {
-    console.table({ action, ...params });
+    console.groupCollapsed(action);
+    console.table(params);
+    console.groupEnd();
   }
 };
 

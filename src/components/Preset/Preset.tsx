@@ -8,6 +8,7 @@ import { StoreContext, ActionType } from '@contexts/Store';
 import { SnackbarContext } from '@contexts/Snackbar';
 
 import { PresetContainer } from './styles';
+import { track } from '@src/utils/analytics';
 
 interface PresetProps {
   meta: {
@@ -41,8 +42,8 @@ const Preset: React.FC<PresetProps> = ({ preset, meta }) => {
         shadows: preset.shadows,
       },
     });
-
     history.push('/');
+    track({ action: 'edit-preset', label: meta.section, value: meta.index });
   }
 
   const handleCopy = () => {
