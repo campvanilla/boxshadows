@@ -15,11 +15,11 @@ const About = () => {
       <p className='blurb'>
         A project by
         <br />
-        <a className='link' target='_blank' rel='noopener noreferrer' href='https://abinavseelan.com' onClick={trackClickExternalLink}>
+        <a className='link' href='https://abinavseelan.com' onClick={trackClickExternalLink}>
           @abinavseelan
         </a>
         &nbsp; &amp; &nbsp;
-        <a className='link' target='_blank' rel='noopener noreferrer' href='https://aditimohanty.com' onClick={trackClickExternalLink}>
+        <a className='link' href='https://aditimohanty.com' onClick={trackClickExternalLink}>
           @aditimohanty
         </a>
       </p>
