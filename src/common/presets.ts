@@ -266,7 +266,7 @@ const CodeSandbox: Array<Preset> = [
 
 const DevTo: Array<Preset> = [
   {
-    name: 'Dev.to Card',
+    name: 'Dev.to Nav',
     element: '#cfd7ff',
     borderColor: '#4e57ef',
     borderThickness: '1',
