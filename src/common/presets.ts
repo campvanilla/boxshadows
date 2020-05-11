@@ -264,6 +264,26 @@ const CodeSandbox: Array<Preset> = [
   },
 ]
 
+const DevTo: Array<Preset> = [
+  {
+    name: 'Dev.to Nav',
+    element: '#cfd7ff',
+    borderColor: '#4e57ef',
+    borderThickness: '1',
+    shadows: [
+      {
+        id: 1,
+        inset: false,
+        offsetX: '3',
+        offsetY: '4',
+        blur: '0',
+        spread: '0',
+        color: '#4e57ef',
+      },
+    ]
+  },
+]
+
 const TailwindCSS: Array<Preset> = [
   {
     name: 'Tailwind xs',
@@ -647,6 +667,11 @@ const Presets: PresetData = {
       title: 'Stripe',
       presets: [...Stripe],
       id: 'preset-section--stripe',
+    },
+    {
+      title: 'DEV.to',
+      presets: [...DevTo],
+      id: 'preset-section--devto',
     },
     {
       title: 'CodeSandbox',
