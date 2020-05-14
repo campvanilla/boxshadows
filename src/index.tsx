@@ -20,8 +20,9 @@ import { Theme } from '@styles/theme';
 
 // utils
 import { setWindowCustomProperties } from '@utils/dom';
+import { withErrorTracking } from '@utils/error-handling';
 
-const App = () => {
+const App: React.FC = () => {
   const [dialogOpenState, setDialogOpenState] = useState(false);
 
   useEffect(setWindowCustomProperties);
@@ -52,4 +53,6 @@ const App = () => {
   );
 };
 
-render(<App />, document.getElementById('app'));
+const AppWithErrorTracking = withErrorTracking(App);
+
+render(<AppWithErrorTracking />, document.getElementById('app'));
