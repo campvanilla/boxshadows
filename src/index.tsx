@@ -20,7 +20,7 @@ import { Theme } from '@styles/theme';
 
 // utils
 import { setWindowCustomProperties } from '@utils/dom';
-import { withErrorTracking } from '@utils/error-handling';
+import { ErrorBoundary } from '@utils/error-handling';
 
 const App: React.FC = () => {
   const [dialogOpenState, setDialogOpenState] = useState(false);
@@ -53,6 +53,12 @@ const App: React.FC = () => {
   );
 };
 
-const AppWithErrorTracking = withErrorTracking(App);
+const AppWithErrorBoundary: React.FC = () => {
+  return (
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  )
+};
 
-render(<AppWithErrorTracking />, document.getElementById('app'));
+render(<AppWithErrorBoundary />, document.getElementById('app'));

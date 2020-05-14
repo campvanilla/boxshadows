@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { ErrorPageWrapper } from './styles';
 import ErrorImageMobile from '@assets/error-page.svg';
 
+export const trackException = (error: Error) => {
+  const { message } = error;
+  if (typeof window.gtag === 'function') {
+    console.log("trackException -> window.gtag", message);
 
-// export const trackException = (error: Error) => {
-
-// };
+    window.gtag('event', 'exception', {
+      description: error,
+      fatal: true,
+    });
+  } else {
+    console.error(error);
+  }
+};
 
 const ErrorPage: React.FC = () => {
   return (
@@ -21,18 +30,21 @@ const ErrorPage: React.FC = () => {
 }
 
 
-export function withErrorTracking<T = any>(
-  Component: React.ComponentType<T>
-) {
-  const WithErrorTracking: React.FC<T> = (props: T) => {
-    try {
-      return <Component {...props} />;
-    } catch (error) {
-      // trackException(error);
+export class ErrorBoundary extends React.Component<PropsWithChildren<{}>, { hasError: boolean }> {
+  state = { hasError: false, };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error) {
+    trackException(error);
+  }
+
+  render() {
+    if (this.state.hasError) {
       return <ErrorPage />;
     }
-  };
-
-  return WithErrorTracking;
+    return this.props.children;
+  }
 }
-
