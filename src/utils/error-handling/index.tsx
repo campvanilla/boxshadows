@@ -5,7 +5,7 @@ import ErrorImageMobile from '@assets/error-page.svg';
 export const trackException = (error: Error) => {
   const { message } = error;
   if (typeof window.gtag === 'function') {
-    console.log("trackException -> window.gtag", message);
+    
 
     window.gtag('event', 'exception', {
       description: error,
