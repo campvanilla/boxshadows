@@ -2,6 +2,7 @@
   "version": 2,
   "routes": [
     { "handle": "filesystem" },
+    { "src": "/sitemap.txt", "dest": "/static/sitemap.txt" },
     { "src": "/.*", "dest": "/index.html" }
   ]
 }
