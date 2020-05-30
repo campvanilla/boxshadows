@@ -43,9 +43,16 @@ export const ColorInput: React.FC<ColorInputProps> = ({
   };
 
   const onPickerChange: ColorChangeHandler = (color) => {
-    const { hex } = color;
+    const { hex, rgb } = color;
+
     if (isFunction(onChange)) {
-      onChange({ name, value: hex });
+        if (rgb.a !== 1) {
+          const { r, b, g, a} = rgb;
+          // Alpha channel has been set, prefer rgba()
+          onChange({ name, value: `rgba(${r}, ${g}, ${b}, ${a})` });
+        } else {
+          onChange({ name, value: hex });
+        }
     }
   };
 
@@ -73,6 +80,7 @@ export const ColorInput: React.FC<ColorInputProps> = ({
      />
     {isActive && <PickerContainer>
         <SketchPicker
+          presetColors={[]}
           ref={pickerRef}
           color={value}
           onChange={onPickerChange}
