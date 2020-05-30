@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 // plugins
+const CopyPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -85,6 +86,11 @@ const config = {
           windows: true, // Create Windows 8 tile icons. `boolean` or `{ offset, background, mask, overlayGlow, overlayShadow }`
         },
       },
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: './sitemap.txt', to: 'static' },
+      ],
     }),
     ANALYZE_BUNDLES && new BundleAnalyzerPlugin(),
     new CaseSensitivePathsPlugin(),
