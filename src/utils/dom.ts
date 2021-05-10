@@ -1,7 +1,7 @@
 import { isFunction } from '@utils/lang';
 import debounce from 'lodash/debounce';
 
-export const removeClass = (element: HTMLElement, className: string) => {
+export const removeClass = (element: HTMLElement, className: string): void => {
   if (!element) return;
 
   if (isFunction(element.classList.remove)) {
@@ -11,7 +11,7 @@ export const removeClass = (element: HTMLElement, className: string) => {
   }
 };
 
-export const addClass = (element: HTMLElement, className: string) => {
+export const addClass = (element: HTMLElement, className: string): void => {
   if (!element) return;
 
   if (isFunction(element.classList.add)) {
@@ -25,7 +25,7 @@ export const addClass = (element: HTMLElement, className: string) => {
  * Set custom properties for vh
  * @see https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
  */
-export const setWindowCustomProperties = () => {
+export const setWindowCustomProperties = (): () => void => {
   const setViewportHeight = () => {
     const vh = window.innerHeight * 0.01;
     const vw = window.innerWidth * 0.01;

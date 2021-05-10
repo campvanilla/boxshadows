@@ -1,12 +1,9 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, ReactNode } from 'react';
 import { ErrorPageWrapper } from './styles';
 import ErrorImageMobile from '@assets/error-page.svg';
 
-export const trackException = (error: Error) => {
-  const { message } = error;
+export const trackException = (error: Error): void => {
   if (typeof window.gtag === 'function') {
-    
-
     window.gtag('event', 'exception', {
       description: error,
       fatal: true,
@@ -29,19 +26,22 @@ const ErrorPage: React.FC = () => {
   );
 }
 
+type BoundaryState = {
+  hasError: boolean;
+}
 
-export class ErrorBoundary extends React.Component<PropsWithChildren<{}>, { hasError: boolean }> {
+export class ErrorBoundary extends React.Component<PropsWithChildren<Record<string, unknown>>, BoundaryState> {
   state = { hasError: false, };
 
-  static getDerivedStateFromError() {
+  static getDerivedStateFromError(): BoundaryState {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error) {
+  componentDidCatch(error: Error): void {
     trackException(error);
   }
 
-  render() {
+  render(): ReactNode {
     if (this.state.hasError) {
       return <ErrorPage />;
     }

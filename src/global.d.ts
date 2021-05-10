@@ -7,6 +7,7 @@
  */
 interface WhyAny {
   GenericTemplateArgument: any;
+  InitialValue: any;
 }
 /* eslint-enable @typescript-eslint/no-explicit-any */
 

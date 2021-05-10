@@ -8,7 +8,7 @@ interface Context {
   updateState: (open: boolean, context: React.ReactNode) => void;
 }
 
-export const SnackbarContext = React.createContext<Context>({} as any);
+export const SnackbarContext = React.createContext<Context>({} as WhyAny['InitialValue']);
 
 const SnackBarProvider = ({ children }) => {
   const [state, updateState] = useState<{open: boolean; content: React.ReactNode}>({

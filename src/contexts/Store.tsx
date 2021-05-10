@@ -50,7 +50,7 @@ type Action =
   | { type: ActionType.UpdateShadow; payload: { id: number; key: string; value: string | boolean } }
   | { type: ActionType.EditPreset; payload: { pageBackground?: string; elementBackground?: string; borderColor?: string; borderThickness?: string; shadows: Array<Shadow> } };
 
-export const StoreContext = React.createContext<Context>({} as any);
+export const StoreContext = React.createContext<Context>({} as WhyAny['InitialValue']);
 
 const StoreProvider = ({ children }) => {
   const reducer = (state: typeof initialState, action: Action) => {
