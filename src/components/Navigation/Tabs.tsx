@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TabsContainer, NavLink, Item } from './styles';
-import { trackClickExternalLink, track } from '@src/utils/analytics';
+import { track } from '@src/utils/analytics';
 
 const tabs = [
   {

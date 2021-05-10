@@ -6,10 +6,10 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button = (props) => {
+const Button: React.FC<ButtonProps> = (props) => {
   const {
     children,
-    disabled,
+    disabled = false,
     ...rest
   } = props;
 

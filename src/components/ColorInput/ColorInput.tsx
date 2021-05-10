@@ -1,10 +1,10 @@
 import SketchPicker from 'react-color/lib/Sketch';
-import {isFunction} from '@utils/lang';
+import { isFunction } from '@utils/lang';
 import React, { useState, useRef, useEffect } from 'react';
 import type { ColorChangeHandler } from 'react-color';
 
 import TextInput, { TextInputProps, TextInputAddon } from '@components/TextInput';
-import { ColorIndicator, PickerContainer, ColorInputWrapper, PickerOverlay } from '@components/ColorInput/styles';
+import { ColorIndicator, PickerContainer, ColorInputWrapper } from '@components/ColorInput/styles';
 
 export interface ColorChangeEvent {
   name: string; value: string;
@@ -17,13 +17,13 @@ export interface ColorInputProps extends TextInputProps {
 export const ColorInput: React.FC<ColorInputProps> = ({
   value,
   name,
-  onFocus,
   onChange,
   ...rest
 }: ColorInputProps) => {
   const [isActive, setActive] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const pickerRef = useRef(null);
+  const pickerRef = useRef<HTMLDivElement>(null);
+
   const clickAwayHandler = useRef((e) => {
     if (!pickerRef.current.base.contains(e.target)) {
       setActive(false);
